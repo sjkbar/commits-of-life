@@ -1,0 +1,11 @@
+{
+  "author": {
+    "name": "Jungyoung Seong",
+    "email": "sjkbar@ani-park.com"
+  },
+  "dependencies": {
+  },
+  "readme": "The BasicData uploader for ma9real.",
+  "readmeFilename": "README.md",
+  "scripts": {"start": "node server.js"}
+}

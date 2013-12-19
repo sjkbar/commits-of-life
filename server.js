@@ -1,12 +1,17 @@
 var express = require( 'express' );
 var fs = require( 'fs' );
+var _ = require("underscore");
+
+//Initialize Express;
 var app = express();
+
+// Setting MiddleWare
+app.use( express.bodyParser( { uploadDir :  "./uploads" } ) );
 
 // Load Contollers
 var contorllers = {};
 contorllers[ 'index' ] = require( "./contorllers/index" );
 contorllers[ 'tableUpload' ] = require( "./contorllers/tableUpload" );
-
 
 // Load Views
 var views = {};
@@ -21,6 +26,10 @@ var context = {};
 context.contorllers = contorllers;
 context.views = views
 
+// Load Misc
+context.misc = {};
+context.misc.fs = fs;
+context.misc._ = _;
 
 // Main Page;
 app.get( '/', function( req, res ) {
@@ -31,6 +40,10 @@ app.get( '/', function( req, res ) {
 app.get( '/tableUpload', function( req, res ) {
     contorllers['tableUpload'].run( context, req, res );
 });
+app.post( '/tableUpload', function( req, res ) {
+    contorllers['tableUpload'].run( context, req, res );
+});
+
 
 // :: TODO ::
 // Table Revert

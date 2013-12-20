@@ -75,10 +75,8 @@ var gitCommmit = function( context, commitMessage, callback )
       var child;
 
 
-      var message = "a\nb\nc"
-      var command = "git commit -a -m \"" + message+"\"";
-
-
+      var util = require('util');
+      var command = util.format("git commit -a -m '[Title] %s' -m '[Update Date] %s' -m '[Description] %s'", commitMessage.title, commitMessage.date, commitMessage.description );
       console.log( command );
       child = exec( command, function( err, stdout, stderr ){
         if ( err ) throw err;

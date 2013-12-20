@@ -31,6 +31,9 @@ context.misc = {};
 context.misc.fs = fs;
 context.misc._ = _;
 
+// Load Configuration
+context.configuration =  require( "./configuration.json" )
+
 // Main Page;
 app.get( '/', function( req, res ) {
     contorllers['index'].run( context, req, res );

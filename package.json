@@ -8,7 +8,8 @@
   	"underscore": "1.5.2",
 	"async" : "0.2.9",
 	"mongoose" : "3.8.3",
-	"ejs" : "0.8.5"
+	"ejs" : "0.8.5",
+	"nodegit" : "0.1.0"
   },
   "readme": "The BasicData uploader for ma9real.",
   "readmeFilename": "README.md",

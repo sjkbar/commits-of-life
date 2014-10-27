@@ -71,15 +71,22 @@ let rec applySolution (solution, operand) =
             else operand)
 ;;
 
-let rec applySolutionToSolutionList (solution, solutionList) =
-    print_int (List.length mapList);print_string "||";
-    solution::(List.map
-        (function (Map (operand1, operand2)) ->
-            Map (operand1, applySolution(solution, operand2)))
-        mapList)
+let rec applySolutionList (solutionList, operand) =
+    let helper operand solution = applySolution(solution, operand) in
+    (List.fold_left
+        helper
+        operand
+        solutionList)
 ;;
 
+(* solutionList * solutionList -> solutionList *)
 let rec applySolutionListToSolutionList (solutionList1, solutionList2) =
+	let rec applySolutionToSolutionList (solution, solutionList) =
+	    solution::(List.map
+	        (function (Map (operand1, operand2)) ->
+	            Map (operand1, applySolution(solution, operand2)))
+	        solutionList) in
+
     let helper result solution = (List.append (applySolutionToSolutionList(solution, solutionList2)) result) in
     (List.fold_left
         helper
@@ -87,14 +94,13 @@ let rec applySolutionListToSolutionList (solutionList1, solutionList2) =
         solutionList1)
 ;;
 
-let rec applySolutionToEqautionList (solution, equationList) =
-    (List.map
-        (function (Equation (operand1, operand2)) ->
-            Equation (applySolution(solution, operand1), applySolution(solution, operand2)))
-        equationList)
-;;
+let rec applySolutionListToEquationList (solutionList, equationList) =
+	let rec applySolutionToEqautionList (solution, equationList) =
+	    (List.map
+	        (function (Equation (operand1, operand2)) ->
+	            Equation (applySolution(solution, operand1), applySolution(solution, operand2)))
+	        equationList) in
 
-let rec applySolutionListToEqautionList (solutionList, equationList) =
     let helper result solution = (List.append (applySolutionToEqautionList(solution, equationList)) result) in
     (List.fold_left
         helper
@@ -102,6 +108,7 @@ let rec applySolutionListToEqautionList (solutionList, equationList) =
         solutionList)
 ;;
 
+(* operand * operand -> solutionList *)
 let rec unify (operand1, operand2) =
     if (operand1 = operand2)
         then []
@@ -109,10 +116,10 @@ let rec unify (operand1, operand2) =
             (match (operand1, operand2) with
             | (Fn (t1, t2), Fn (t3, t4)) ->
                 let s1 = unify(t1, t3) in
-                let s2 = unify(applySolution (t2), applySolution (t4) in
+                let s2 = unify(applySolutionList(s1, t2), applySolutionList(s1, t4)) in
                 applySolutionListToSolutionList(s2, s1)
-           | (V a, t) -> print_string a;applySolutionToSolutionList((Map ((V a), t)), solutionList)
-           | (t, V a) -> print_string a;applySolutionToSolutionList((Map ((V a), t)), solutionList)
+           | (V a, t) -> [Map ((V a), t)]
+           | (t, V a) -> [(Map ((V a), t))]
            | _ -> raise IMPOSSIBLE)
 (*
 let rec unify (operand1, operand2, solutionList) =
@@ -131,13 +138,14 @@ let rec unify (operand1, operand2, solutionList) =
 ;;
 *)
 
+(* equationList * solutionList -> solutionList *)
 let rec unifyAll(equationList, solutionList) =
     match equationList with
-    | [] -> solutionList
-    | (Equation (operand1, operand2))::tl -> let newSolutionList = unify(operand1, operand2, solutionList) in unifyAll(applySolutionListToEqautionList(newSolutionList, tl), newSolutionList)
+    | [] -> []
+    | (Equation (operand1, operand2))::[] -> unify(operand1, operand2)
+    | hd::tl ->  let newSolutionList = unifyAll([hd], solutionList) in
+        unifyAll(applySolutionListToEquationList(newSolutionList, equationList), newSolutionList)
 ;;
-
-
 
 
 let m1 = (Branch (End (NameBox "x"), End(NameBox "x")))

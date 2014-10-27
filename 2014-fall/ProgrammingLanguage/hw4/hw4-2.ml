@@ -71,16 +71,23 @@ let rec applySolution (solution, operand) =
             else operand)
 ;;
 
-let rec applySolutionToSolutionList (solution, mapList) =
-    print_int 3;
+let rec applySolutionToSolutionList (solution, solutionList) =
+    print_int (List.length mapList);print_string "||";
     solution::(List.map
         (function (Map (operand1, operand2)) ->
             Map (operand1, applySolution(solution, operand2)))
         mapList)
 ;;
 
+let rec applySolutionListToSolutionList (solutionList1, solutionList2) =
+    let helper result solution = (List.append (applySolutionToSolutionList(solution, solutionList2)) result) in
+    (List.fold_left
+        helper
+        []
+        solutionList1)
+;;
+
 let rec applySolutionToEqautionList (solution, equationList) =
-    print_int 2;
     (List.map
         (function (Equation (operand1, operand2)) ->
             Equation (applySolution(solution, operand1), applySolution(solution, operand2)))
@@ -88,7 +95,6 @@ let rec applySolutionToEqautionList (solution, equationList) =
 ;;
 
 let rec applySolutionListToEqautionList (solutionList, equationList) =
-    print_int 1;
     let helper result solution = (List.append (applySolutionToEqautionList(solution, equationList)) result) in
     (List.fold_left
         helper
@@ -96,6 +102,19 @@ let rec applySolutionListToEqautionList (solutionList, equationList) =
         solutionList)
 ;;
 
+let rec unify (operand1, operand2) =
+    if (operand1 = operand2)
+        then []
+        else
+            (match (operand1, operand2) with
+            | (Fn (t1, t2), Fn (t3, t4)) ->
+                let s1 = unify(t1, t3) in
+                let s2 = unify(applySolution (t2), applySolution (t4) in
+                applySolutionListToSolutionList(s2, s1)
+           | (V a, t) -> print_string a;applySolutionToSolutionList((Map ((V a), t)), solutionList)
+           | (t, V a) -> print_string a;applySolutionToSolutionList((Map ((V a), t)), solutionList)
+           | _ -> raise IMPOSSIBLE)
+(*
 let rec unify (operand1, operand2, solutionList) =
     if (operand1 = operand2)
         then solutionList
@@ -106,10 +125,11 @@ let rec unify (operand1, operand2, solutionList) =
                 let s2 = unify(t2, t4, solutionList) in
                 let newSolutionList = applySolutionToSolutionList((List.hd s1), solutionList) in
                 applySolutionToSolutionList((List.hd s2), newSolutionList)
-           | (V a, t) -> applySolutionToSolutionList((Map ((V a), t)), solutionList)
-           | (t, V a) -> applySolutionToSolutionList((Map ((V a), t)), solutionList)
+           | (V a, t) -> print_string a;applySolutionToSolutionList((Map ((V a), t)), solutionList)
+           | (t, V a) -> print_string a;applySolutionToSolutionList((Map ((V a), t)), solutionList)
            | _ -> raise IMPOSSIBLE)
 ;;
+*)
 
 let rec unifyAll(equationList, solutionList) =
     match equationList with
@@ -140,6 +160,7 @@ let eq3 = getEquations (Env.empty, m3, (V "TAU"))
 ;;
 let eq4 = getEquations (Env.empty, m4, (V "TAU"))
 ;;
+
 
 let ans1 = unifyAll(eq1, [])
 let ans2 = unifyAll(eq2, [])

@@ -96,8 +96,8 @@ int readInt(FILE* file) {
 // -1 : fail
 // else : proper position
 // size should be added FRONT_SIZE + END_SIZE
-unsigned short firstFitSearch(short position, short size) {
-    printf("firstFitSearch( %u, %u)\n", position, size);
+unsigned short firstFitSearch(short* ptr, short size) {
+    printf("firstFitSearch( position = %u, size = %u)\n", position, size);
     if (position == END) {
         return -1;
     }
@@ -114,7 +114,7 @@ unsigned short firstFitSearch(short position, short size) {
 
 //size should be added FRONT_SIZE + END_SIZE
 void addBlock(unsigned short position, unsigned short size) {
-    printf("addBlock( %u, %u)\n", position, size);
+    printf("addBlock( position = %u, size = %u)\n", position, size);
     short newSize = ((size + 1) >> 1) << 1; // evenify
     short oldSize = readFrontSize(position) & -2;
 
@@ -136,7 +136,6 @@ void addBlock(unsigned short position, unsigned short size) {
 
         //goto prev and set prev's next to current
         //goto next and set next's prev to current
-        printf("next = %u ||| prev = %u ||| ROOT = %u \n", next, prev, ROOT);
         if (prev == ROOT) {
             ROOT = newBlockPosition;
             writePrev(newBlockPosition, ROOT);
@@ -166,16 +165,15 @@ void addBlock(unsigned short position, unsigned short size) {
 }
 
 void initBlock(short memorrySize) {
-    ROOT = 0;
+    ROOT = memorry;
+    END = memorry + 1;
 
-    writeFrontSize(0, memorrySize);
-    writeEndSize(0, memorrySize);
-    writeNext(0, END);
-    writePrev(0, ROOT);
+    writeFrontSize(4, memorrySize-4);
+    writeEndSize(4, memorrySize-4);
+    writeNext(4, END);
+    writePrev(4, ROOT);
 
     //printf("front Size %u | next %u | prev %u\n", readFrontSize(0), readNext(0), readPrev(0));
-    printArray(memorry, memorrySize);
-
 }
 
 int memorryManage(unsigned short memorrySize, char memorryPolicy, FILE* file) {
@@ -198,8 +196,11 @@ int firstFit(int memorrySize, FILE* file) {
 
     Command command;
     while (readOneCommand(file, &command) == 0) {
-        printf("************\n");
-        printf("type : %c | arg1 = %d | arg2 = %d\n", command.type, command.arg1, command.arg2);
+        printf("\n************\n");
+        printMem();
+        printf("Command (%c |  %d | %d)\n", command.type, command.arg1, command.arg2);
+
+
         if(command.type == 'A') {
             short size = command.arg2 + WORD_SIZE * 2;
             unsigned short position = firstFitSearch(ROOT, size);
@@ -209,15 +210,15 @@ int firstFit(int memorrySize, FILE* file) {
             } else {
                 addBlock(position, size);
                 ids[command.arg1] = position;
-                printArray(memorry, memorrySize);
             }
         } else if (command.type == 'F') {
-            short id = ids[command.arg1];
+            unsigned short position = ids[command.arg1];
+            freeBlock(position);
         } else {
             printf("Not implemeted protocol\n");
         }
 
-
+        printMem();
     }
 
     return 0;
@@ -258,8 +259,7 @@ void writeFrontSize(unsigned short position, unsigned short size) {
 }       
 
 void writeEndSize(unsigned short position, unsigned short size) {
-    unsigned short allignedSize = size & -2;
-    *((short*) (memorry + position + allignedSize - WORD_SIZE)) = size;
+    *((short*) (memorry + position + (size & -2) - WORD_SIZE)) = size;
 }
 
 void writeNext(unsigned short position, unsigned short next) {
@@ -270,6 +270,49 @@ void writePrev(unsigned short position, unsigned short prev) {
     *((short*) (memorry + position + NODE_PREV_OFFSET)) = prev;
 }
 
+void freeBlock(unsigned short position) {
+    printf("addBlock( position = %u)\n", position);
+    unsigned short size = readFrontSize(position) & -2;
+
+    //check next block is not using
+    unsigned short nextBlockSize = readFrontSize(position + size);
+    bool isNextBlockUsing = nextBlockSize & 1;
+
+    //check previous block is not using
+    unsigned short prevBlockSize = readFrontSize(position - WORD_SIZE);
+    bool isPrevBlockUsing = prevBlockSize & 1;
+
+    printf("size = %u | nextBlockSize = %u | prevBlockSize = %u\n", size, nextBlockSize, prevBlockSize);
+    if(!isNextBlockUsing && !isPrevBlockUsing) {
+        printf("Case A\n");
+        writeFrontSize(position, size & -2);
+        writeEndSize(position, size & -2);
+    } else if(isNextBlockUsing && !isPrevBlockUsing) {
+        printf("Case B\n");
+        writeFrontSize(position, (size + prevBlockSize) & -2);
+        writeEndSize(position, (size + prevBlockSize) & -2);
+
+    } else if(!isNextBlockUsing && isPrevBlockUsing) {
+        printf("Case C\n");
+        writeFrontSize(position, (size + nextBlockSize) & -2);
+        writeEndSize(position, (size + nextBlockSize) & -2);
+    } else {
+        printf("Case D\n");
+        writeFrontSize(position, (size + prevBlockSize + nextBlockSize) & -2);
+        writeEndSize(position, (size + prevBlockSize + nextBlockSize) & -2);
+    }
+
+}
+
+short readEndSize(short position) {
+    unsigned short size = readFrontSize(position) & -2;
+    if(size == 0) {
+        printf("\n\nreadEndSize error\n");
+        exit(-1);
+    }
+    return *((short*) (memorry + position + size - WORD_SIZE));
+}
+
 void printArray(char array[], int size) {
     printf("ROOT %u\n", ROOT);
     int i;
@@ -277,4 +320,20 @@ void printArray(char array[], int size) {
         printf("%u ", array[i]);
     }
     printf("\n");
+}
+
+void printMem() {
+    printf("\n@@@@MEM PRINT@@@@\n");
+    printArray(memorry, memorrySize);
+
+    printf("ROOT %u\n", ROOT);
+    unsigned short position = 0;
+
+    while(position < memorrySize) {
+        unsigned short next = position + readFrontSize(position) & -2;
+        printf("[%u ~ %u] = [%u | %u | %u | %u)\n", position, next, readFrontSize(position), readNext(position), readPrev(position), readEndSize(position));
+        position = next;
+    }
+
+    printf("!!!MEM PRINT DONE !!!\n\n");
 }

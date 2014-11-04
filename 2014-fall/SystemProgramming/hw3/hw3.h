@@ -7,8 +7,8 @@ typedef struct {
     short arg2;
 } Command;
 
-int ROOT = 0;
-int END = 65535;
+short* ROOT;
+short* END;
 
 int WORD_SIZE = 2;
 
@@ -45,3 +45,8 @@ void writeNext(unsigned short position, unsigned short next);
 void writePrev(unsigned short position, unsigned short prev);
 
 void printArray(char array[], int size);
+
+void addBlock(unsigned short position, unsigned short size);
+void freeBlock(unsigned short position);
+
+void printMem();

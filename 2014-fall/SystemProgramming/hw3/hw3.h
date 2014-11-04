@@ -7,6 +7,9 @@ typedef struct {
     short arg2;
 } Command;
 
+unsigned short START_INDEX;
+unsigned short ROOT_INDEX;
+unsigned short END_INDEX;
 short* ROOT;
 short* END;
 
@@ -32,7 +35,7 @@ int firstFit(int memorrySize, FILE* file);
 int BestFit(int memorrySize, FILE* file);
 int WorstFit(int memorrySize, FILE* file);
 int allocation(int position, int size);
-unsigned short firstFitSearch(short position, short size);
+unsigned short firstFitSearch(unsigned short position, short size);
 
 short readFrontSize(short position);
 short readEndSize(short position);

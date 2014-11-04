@@ -204,6 +204,11 @@ int firstFit(int memorrySize, FILE* file) {
         if(command.type == 'A') {
             short size = command.arg2 + WORD_SIZE * 2;
             unsigned short position = firstFitSearch(ROOT, size);
+        }
+    /*
+        if(command.type == 'A') {
+            short size = command.arg2 + WORD_SIZE * 2;
+            unsigned short position = firstFitSearch(ROOT, size);
             if(position == END) {
                 printf("Allocation Fail\n");
                 continue;
@@ -216,7 +221,7 @@ int firstFit(int memorrySize, FILE* file) {
             freeBlock(position);
         } else {
             printf("Not implemeted protocol\n");
-        }
+        }*/
 
         printMem();
     }

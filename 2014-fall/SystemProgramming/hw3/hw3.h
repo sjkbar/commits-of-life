@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int ALLOC_FAIL_COUNT = 0;
+int COALESCING_COUNT = 0;
+FILE* OUTPUT_FILE;
 typedef struct {
     char type;
     short arg1;
@@ -24,7 +27,8 @@ int MIN_FREE_BLOC_SIZE = 2 * 4;
 char memorry[65536] = {0};
 short memorrySize = 0;
 
-short ids[1000] = {0};
+int IDS_SIZE = 1024;
+short ids[1024] = {0};
 
 int readTotalMemmorySize(FILE* file);
 char readMomorryManagePolicy(FILE* file);
@@ -32,8 +36,8 @@ int readOneCommand(FILE* file, Command* command);
 int memorryManage(unsigned short memorrySize, char memorryPolicy, FILE* file);
 int readInt(FILE* file);
 int firstFit(int memorrySize, FILE* file);
-int BestFit(int memorrySize, FILE* file);
-int WorstFit(int memorrySize, FILE* file);
+int bestFit(int memorrySize, FILE* file);
+int worstFit(int memorrySize, FILE* file);
 int allocation(int position, int size);
 unsigned short firstFitSearch(unsigned short position, short size);
 

@@ -7,7 +7,11 @@
 int main(int argc, char* argv[]) {
 
     char* outputFilePath = "result.out";
-    FILE* outputFile;
+    OUTPUT_FILE = fopen(outputFilePath, "w+");
+    if (OUTPUT_FILE == NULL) {
+        printf("open output file fail\n");
+        return -1;
+    }
 
     if (argc != 2) {
         printf("need 2 args but %d\n", argc);
@@ -116,9 +120,9 @@ int memorryManage(unsigned short memorrySize, char memorryPolicy, FILE* file) {
     if(memorryPolicy == 'F')
         firstFit(memorrySize, file);
     else if(memorryPolicy == 'B')
-        BestFit(memorrySize, file);
+        bestFit(memorrySize, file);
     else if(memorryPolicy == 'W')
-        WorstFit(memorrySize, file);
+        worstFit(memorrySize, file);
     else {
         printf("Wrong memorryPolicy %c", memorryPolicy);
         exit(-1);
@@ -132,17 +136,14 @@ int firstFit(int memorrySize, FILE* file) {
 
     Command command;
     while (readOneCommand(file, &command) == 0) {
-        printf("\n************\n");
-        printMem();
-        printf("Command (%c |  %d | %d)\n", command.type, command.arg1, command.arg2);
-
-
         if(command.type == 'A') {
             short size = command.arg2 + WORD_SIZE * 2;
             unsigned short position = firstFitSearch(*ROOT, size);
-            printf("position %u\n", position);
+            //printf("position %u\n", position);
             if(position == END_INDEX) {
-                printf("Allocation Fail\n");
+                ALLOC_FAIL_COUNT++;
+                //printf("Allocation Fail\n");
+                //printf("\n\n");
                 continue;
             } else {
                 addBlock(position, size);
@@ -151,7 +152,7 @@ int firstFit(int memorrySize, FILE* file) {
         } else if (command.type == 'F') {
             unsigned short position = ids[command.arg1];
             if(position == 0) {
-                printf("Free Fail\n");
+                //printf("Free Fail\n");
                 continue;
             } else {
                 freeBlock(position);
@@ -159,10 +160,8 @@ int firstFit(int memorrySize, FILE* file) {
             }
 
         } else {
-            printf("Not implemeted protocol\n");
+            printMem();
         }
-
-        printMem();
     }
 
     return 0;
@@ -232,67 +231,121 @@ void printArray(char array[], int size) {
 }
 
 void printMem() {
-    printArray(memorry, memorrySize);
-    printf("Current Memmory Allocation State\n");
-    printf("--------------------------------\n");
-    printf("ROOT %u\n", *ROOT);
-    printf("END %u\n", *END);
-    printf("ROOT_INDEX %u\n", ROOT_INDEX);
-    printf("END_INDEX %u\n", END_INDEX);
+    fprintf(OUTPUT_FILE, "Current Memmory Allocation State\n");
+    fprintf(OUTPUT_FILE, "--------------------------------\n");
 
 
     int count = 0;
-    printf("Available Memorry\n");
+    fprintf(OUTPUT_FILE, "Available Memorry\n");
     unsigned short position = *ROOT & -2;
     while(position != END_INDEX) {
         if(count++ == 10)
             return;
         unsigned short next = readNext(position) & -2;
-        if(next == END_INDEX)
-            printf("\t[%u~%u] = [%u | %u | %u | %u)\n", position, position + readFrontSize(position), readFrontSize(position), next, readPrev(position), readEndSize(position));
-        else
-            printf("\t[%u~%u] = [%u | %u | %u | %u)\n", position, next, readFrontSize(position), next, readPrev(position), readEndSize(position));
+        fprintf(OUTPUT_FILE,"\t[%u~%u] = [%u | %u | %u | %u)\n", position, position + readFrontSize(position), readFrontSize(position), next, readPrev(position), readEndSize(position));
 
         position = next;
     }
 
-    printf("Allocated Memorry\n");
-    position = START_INDEX & -2;
-    while(position < memorrySize) {
-        unsigned short size = readFrontSize(position);
-        unsigned short next = (position + size) & -2;
+    fprintf(OUTPUT_FILE, "Allocated Memorry2\n");
+    int i;
+    for(i = 0; i < IDS_SIZE; i++ ) {
+        unsigned short position = ids[i];
+        if(position != 0) {
+            unsigned short size = readFrontSize(position);
+            unsigned short next = (position + size) & -2;
 
-        if(size & 1)
-            printf("\t[%u~%u]\n", position, next);
-        position = next;
+            fprintf(OUTPUT_FILE, "\t%u : [%u~%u]\n", i, position, next);
+        }
+
     }
 
+    fprintf(OUTPUT_FILE, "coalescint count : %d\n", COALESCING_COUNT);
+    fprintf(OUTPUT_FILE, "memorry allocation fail count : %d\n", ALLOC_FAIL_COUNT);
     
-    printf("\n\n");
+    fprintf(OUTPUT_FILE, "\n\n");
 }
 
 // -1 : fail
 // else : proper position
 // size should be added FRONT_SIZE + END_SIZE
 unsigned short firstFitSearch(unsigned short position, short size) {
-    printf("firstFitSearch( position = %u, size = %u)\n", position, size);
-    if (position == END_INDEX) {
-        printf("firstFitSearch fail [position(%u) > memorrySize(%u)]\n", position, memorrySize);
-        return END_INDEX;
+    while(true) {
+        //printf("firstFitSearch( position = %u, size = %u)\n", position, size);
+        if (position == END_INDEX) {
+            //printf("firstFitSearch fail [position(%u) > memorrySize(%u)]\n", position, memorrySize);
+            return END_INDEX;
+        }
+
+        short blockSize = readFrontSize(position);
+        if (blockSize >= size)
+            return position;
+        else
+            position = readNext(position);
+    }
+}
+
+unsigned short bestFitSearch(unsigned short position, short size) {
+    int bestDiff = 65535;
+    unsigned short bestPosition = position;
+    unsigned short bestSize = 0;
+
+    while(true) {
+        //printf("position %d | bestDiff %d | bestPosition %u | bestSize %u\n", position, bestDiff, bestPosition, bestSize);
+        if (position == END_INDEX)
+            break;
+
+        short blockSize = readFrontSize(position);
+        int temp = blockSize - size;
+        //printf("blockSize %u | temp %d\n", blockSize, temp);
+        if ( temp >= 0 && temp < bestDiff) {
+            //printf("yes\n");
+            bestDiff = temp;
+            bestPosition = position;
+            bestSize = blockSize;
+        }
+
+        position = readNext(position);
     }
 
-    short blockSize = readFrontSize(position);
-    if (blockSize >= size)
-        return position;
-    else {
-        short next = readNext(position);
-        return firstFitSearch(next, size);
+    if(bestSize > 0)
+        return bestPosition;
+    else
+        return END_INDEX;
+}
+
+unsigned short worstFitSearch(unsigned short position, short size) {
+    int worstDiff = -1;
+    unsigned short worstPosition = position;
+    unsigned short worstSize = 0;
+
+    while(true) {
+        //printf("position %d | worstDiff %d | worstPosition %u | worstSize %u\n", position, worstDiff, worstPosition, worstSize);
+        if (position == END_INDEX)
+            break;
+
+        short blockSize = readFrontSize(position);
+        int temp = blockSize - size;
+        //printf("blockSize %u | temp %d\n", blockSize, temp);
+        if ( temp >= 0 && temp > worstDiff) {
+            //printf("yes\n");
+            worstDiff = temp;
+            worstPosition = position;
+            worstSize = blockSize;
+        }
+
+        position = readNext(position);
     }
+
+    if(worstSize > 0)
+        return worstPosition;
+    else
+        return END_INDEX;
 }
 
 //size should be added FRONT_SIZE + END_SIZE
 void addBlock(unsigned short position, unsigned short size) {
-    printf("addBlock( position = %u, size = %u)\n", position, size);
+    //printf("addBlock( position = %u, size = %u)\n", position, size);
     short newSize = ((size + 1) >> 1) << 1; // evenify
     short oldSize = readFrontSize(position) & -2;
 
@@ -347,14 +400,14 @@ void addBlock(unsigned short position, unsigned short size) {
 }
 
 void freeBlock(unsigned short position) {
-    printf("freeBlock( position = %u)\n", position);
+    //printf("freeBlock( position = %u)\n", position);
     unsigned short size = readFrontSize(position) & -2;
 
     //check next block is not using
     unsigned short nextPosition = position + size;
     unsigned short nextBlockSize = 0;
     bool isNextBlockUsing = 1;
-    printf("nextPosition %u | memorrySize %u\n", nextPosition, memorrySize);
+    //printf("nextPosition %u | memorrySize %u\n", nextPosition, memorrySize);
     if(nextPosition < memorrySize) {
         nextBlockSize = readFrontSize(nextPosition);
         isNextBlockUsing = nextBlockSize & 1;
@@ -369,9 +422,9 @@ void freeBlock(unsigned short position) {
         isPrevBlockUsing = prevBlockSize & 1;
     }
 
-    printf("size = %u | nextBlockSize = %u | prevBlockSize = %u\n", size, nextBlockSize, prevBlockSize);
+    //printf("size = %u | nextBlockSize = %u | prevBlockSize = %u\n", size, nextBlockSize, prevBlockSize);
     if(isNextBlockUsing && isPrevBlockUsing) {
-        printf("Case A\n");
+        //printf("Case A\n");
         writeFrontSize(position, size & -2);
         writeEndSize(position, size & -2);
         memset(memorry + position + WORD_SIZE, 0, size - MIN_FREE_BLOC_SIZE);
@@ -386,7 +439,8 @@ void freeBlock(unsigned short position) {
         *ROOT = position;
 
     } else if(isNextBlockUsing && !isPrevBlockUsing) {
-        printf("Case B\n");
+        COALESCING_COUNT++;
+        //printf("Case B\n");
 
         unsigned short prevPosition = position - prevBlockSize;
         unsigned short prevFreeBlockPosition = readPrev(prevPosition);
@@ -419,17 +473,18 @@ void freeBlock(unsigned short position) {
         *ROOT = prevPosition;
 
     } else if(!isNextBlockUsing && isPrevBlockUsing) {
-        printf("Case C\n");
+        COALESCING_COUNT++;
+        //printf("Case C\n");
 
         unsigned short prevFreeBlockPosition = readPrev(nextPosition);
         unsigned short nextFreeBlockPosition = readNext(nextPosition);
 
         writeFrontSize(position, (size + nextBlockSize) & -2);
         writeEndSize(position, (size + nextBlockSize) & -2);
-        printf("nextPosition %u | nextBlockSize %u\n", nextPosition, nextBlockSize);
+        //printf("nextPosition %u | nextBlockSize %u\n", nextPosition, nextBlockSize);
         memset(memorry + position + WORD_SIZE, 0, size + nextBlockSize - WORD_SIZE*2);
 
-        printf("prevFreeBlockPosition %u | nextFreeBlockPosition %u\n", prevFreeBlockPosition, nextFreeBlockPosition); 
+        //printf("prevFreeBlockPosition %u | nextFreeBlockPosition %u\n", prevFreeBlockPosition, nextFreeBlockPosition); 
         if(prevFreeBlockPosition == ROOT_INDEX)
             *ROOT = nextFreeBlockPosition;
         else
@@ -449,7 +504,8 @@ void freeBlock(unsigned short position) {
 
         *ROOT = position;
     } else {
-        printf("Case D\n");
+        COALESCING_COUNT++;
+        //printf("Case D\n");
 
         unsigned short prevPosition = position - prevBlockSize;
         unsigned short prevFreeBlockPosition = readPrev(nextPosition);
@@ -458,6 +514,87 @@ void freeBlock(unsigned short position) {
         writeFrontSize(prevPosition, (size + prevBlockSize + nextBlockSize) & -2);
         writeEndSize(prevPosition, (size + prevBlockSize + nextBlockSize) & -2);
         memset(memorry + prevPosition + (WORD_SIZE*3), 0, size + nextBlockSize + prevBlockSize- MIN_FREE_BLOC_SIZE);
+
+        //printf("prevFreeBlockPosition %u | nextFreeBlockPosition %u\n", prevFreeBlockPosition, nextFreeBlockPosition); 
+        if(prevFreeBlockPosition == ROOT_INDEX)
+            *ROOT = nextFreeBlockPosition;
+        else
+            writeNext(prevFreeBlockPosition, nextFreeBlockPosition);
+
+        if(nextFreeBlockPosition == END_INDEX)
+            *END = prevFreeBlockPosition;
+        else
+            writePrev(nextFreeBlockPosition, prevFreeBlockPosition);
     }
 
+}
+
+int bestFit(int memorrySize, FILE* file) {
+    initBlock(memorrySize);
+
+    Command command;
+    while (readOneCommand(file, &command) == 0) {
+        if(command.type == 'A') {
+            short size = command.arg2 + WORD_SIZE * 2;
+            unsigned short position = bestFitSearch(*ROOT, size);
+            //printf("position %u\n", position);
+            if(position == END_INDEX) {
+                printf("Allocation Fail\n");
+                printf("\n\n\n");
+                continue;
+            } else {
+                addBlock(position, size);
+                ids[command.arg1] = position;
+            }
+        } else if (command.type == 'F') {
+            unsigned short position = ids[command.arg1];
+            if(position == 0) {
+                printf("Free Fail\n");
+                continue;
+            } else {
+                freeBlock(position);
+                ids[command.arg1] = 0;
+            }
+
+        } else {
+            printMem();
+        }
+    }
+
+    return 0;
+}
+
+int worstFit(int memorrySize, FILE* file) {
+    initBlock(memorrySize);
+
+    Command command;
+    while (readOneCommand(file, &command) == 0) {
+        if(command.type == 'A') {
+            short size = command.arg2 + WORD_SIZE * 2;
+            unsigned short position = worstFitSearch(*ROOT, size);
+            //printf("position %u\n", position);
+            if(position == END_INDEX) {
+                //printf("Allocation Fail\n");
+                //printf("\n\n\n");
+                continue;
+            } else {
+                addBlock(position, size);
+                ids[command.arg1] = position;
+            }
+        } else if (command.type == 'F') {
+            unsigned short position = ids[command.arg1];
+            if(position == 0) {
+                //printf("Free Fail\n");
+                continue;
+            } else {
+                freeBlock(position);
+                ids[command.arg1] = 0;
+            }
+
+        } else {
+            printMem();
+        }
+    }
+
+    return 0;
 }

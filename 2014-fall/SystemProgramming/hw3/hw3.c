@@ -539,8 +539,9 @@ int bestFit(int memorrySize, FILE* file) {
             unsigned short position = bestFitSearch(*ROOT, size);
             //printf("position %u\n", position);
             if(position == END_INDEX) {
-                printf("Allocation Fail\n");
-                printf("\n\n\n");
+                ALLOC_FAIL_COUNT++;
+                //printf("Allocation Fail\n");
+                //printf("\n\n\n");
                 continue;
             } else {
                 addBlock(position, size);
@@ -574,6 +575,7 @@ int worstFit(int memorrySize, FILE* file) {
             unsigned short position = worstFitSearch(*ROOT, size);
             //printf("position %u\n", position);
             if(position == END_INDEX) {
+                ALLOC_FAIL_COUNT++;
                 //printf("Allocation Fail\n");
                 //printf("\n\n\n");
                 continue;

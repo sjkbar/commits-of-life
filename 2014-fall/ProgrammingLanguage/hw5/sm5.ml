@@ -15,6 +15,7 @@ sig
    and record
    and loc
    and command = cmd list
+   and svalue
 
   exception GC_Failure
 
@@ -22,6 +23,12 @@ sig
 
   val print : command -> unit
   val run : command -> unit
+  val newl2 : unit -> (int * int)
+  val seel2 : unit ->  (int * int) list
+  val setl2 : (int * int) list -> unit
+  val findUsingEnvLoc : ('a * svalue) list -> loc list
+  val testEnv :  (string * svalue) list
+  val testCommand : command
 
 end
 
@@ -51,6 +58,9 @@ struct
   exception End
 
   let empty_command = []
+
+  let testCommand =  [MALLOC; BIND "X"; MALLOC; MALLOC;MALLOC; MALLOC; MALLOC; MALLOC; MALLOC]
+  let testEnv =  [("a", (V (Z 10))); ("b", (V (B true))); ("c", (V (L (2,0)))); ("d", (V (L (3,0))))]
 
   let (@?) l x = snd (List.find (fun y -> x = fst y) l)
   let fsts l = List.map fst l 
@@ -120,6 +130,48 @@ struct
       (* create new loc *)
   let newl () = loccount := !loccount + 1; (!loccount,0)
 
+  let locationList = ref []
+
+  let rec findLocation x locations =
+    if (List.mem (x,0) locations)
+        then
+            (findLocation (x + 1) locations)
+        else
+            (x, 0)
+
+  let seel2 () = !locationList
+  let setl2 a = locationList := a
+  let newl2 () =
+    let locations = !locationList in
+    let newLoc = (findLocation 1 locations) in
+        locationList := newLoc::(!locationList); newLoc
+
+  let rec findUsingEnvLoc e =
+    match e with
+    | [] -> []
+    | (id, (V (L loc)))::tl -> loc::(findUsingEnvLoc tl)
+    | (_, _)::tl ->(findUsingEnvLoc tl)
+
+  let rec findUsingContLoc k =
+    match k with
+    | [] -> []
+    | (c, e)::tl -> (List.append (findUsingEnvLoc e) (findUsingContLoc tl))
+
+  let recycle m e k =
+    let using_cur_env_loc = findUsingEnvLoc e in
+    let using_continum_env_loc = findUsingContLoc k in
+    let using_loc = List.append using_cur_env_loc using_continum_env_loc in
+        locationList := (List.filter (function x -> (List.mem x using_loc)) !locationList); ()
+
+  let rec sm5_malloc s m e c k =
+    let size = List.length (!locationList) in
+        if( size >= 128)
+            then (
+                (recycle m e k);
+                let new_size = List.length (!locationList) in
+                    if (new_size >= 128) then raise GC_Failure else (V(L(newl2()))::s, m, e, c, k))
+            else
+                (V(L(newl2()))::s, m, e, c, k)
 
   let rec print_svalue svalue =
     match svalue with
@@ -131,7 +183,6 @@ struct
     match svalues with
     |[] -> print_endline ""
     |hd::tl -> print_svalue hd; print_svalues tl
-
   let rec eval (s,m,e,c,k) = 
   (*
     print_endline "********************************";
@@ -160,7 +211,7 @@ struct
 			let (l1, l2) = l in raise (Unbound_loc (l1, l2)))
      | (V(B b)::s,_,_,JTR(c1,c2)::c,_) -> 
          (s, m, e, (if b then c1@c else (c2@c)), k)
-     | (_,_,_,MALLOC::c,_) -> (V(L(newl()))::s, m, e, c, k)
+     | (_,_,_,MALLOC::c,_) -> (sm5_malloc s m e c k)
      | (_,_,_,BOX z::c,_) ->
         let rec box b i s =
 			if i = 0 then V (R b)::s

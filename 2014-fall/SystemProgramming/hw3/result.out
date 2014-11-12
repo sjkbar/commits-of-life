@@ -1,0 +1,64 @@
+Current Memmory Allocation State
+--------------------------------
+Available Memorry
+	[436~500] = [64 | 2 | 0 | 64)
+Allocated Memorry2
+	1 : [4~108]
+	2 : [108~312]
+	3 : [312~436]
+coalescint count : 0
+memorry allocation fail count : 0
+
+
+Current Memmory Allocation State
+--------------------------------
+Available Memorry
+	[108~312] = [204 | 436 | 0 | 204)
+	[436~500] = [64 | 2 | 108 | 64)
+Allocated Memorry2
+	1 : [4~108]
+	3 : [312~436]
+coalescint count : 0
+memorry allocation fail count : 0
+
+
+Current Memmory Allocation State
+--------------------------------
+Available Memorry
+	[286~312] = [26 | 436 | 0 | 26)
+	[436~500] = [64 | 2 | 286 | 64)
+Allocated Memorry2
+	1 : [4~108]
+	3 : [312~436]
+	4 : [108~172]
+	5 : [172~286]
+coalescint count : 0
+memorry allocation fail count : 0
+
+
+Current Memmory Allocation State
+--------------------------------
+Available Memorry
+	[286~500] = [214 | 2 | 0 | 214)
+Allocated Memorry2
+	1 : [4~108]
+	4 : [108~172]
+	5 : [172~286]
+coalescint count : 1
+memorry allocation fail count : 0
+
+
+Current Memmory Allocation State
+--------------------------------
+Available Memorry
+	[484~500] = [16 | 2 | 0 | 16)
+Allocated Memorry2
+	1 : [4~108]
+	4 : [108~172]
+	5 : [172~286]
+	6 : [286~340]
+	7 : [340~484]
+coalescint count : 1
+memorry allocation fail count : 1
+
+

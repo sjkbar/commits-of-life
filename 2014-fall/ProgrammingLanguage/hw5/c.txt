@@ -1,0 +1,27 @@
+LETV(
+  id, exp1
+  LETF(
+    "__FOR",
+    "__y",
+    IF(
+      LESS(
+        VAR(
+          "__y"
+        ),
+        exp2
+      ),
+      SEQ(
+        exp3,
+        CALLR(
+          "__FOR",
+          "__y"
+        )
+      ),
+      UNIT
+    ),
+    CALLR(
+      "__FOR",
+      id
+    )
+  )
+)

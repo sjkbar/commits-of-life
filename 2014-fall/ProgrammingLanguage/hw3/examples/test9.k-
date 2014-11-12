@@ -1,0 +1,1 @@
+let y:={y:=1, y:=2, q:=3} in y.y:=3; write y.y

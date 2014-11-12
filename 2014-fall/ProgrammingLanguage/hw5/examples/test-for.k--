@@ -1,0 +1,14 @@
+let n1 := 0 in
+let n2 := 20 in
+n1 := 0;
+while ( n1 < (n2 + 1)) do (
+    let n3 := 0 in
+    let n4 := 2 in
+    while( n3 < (n4 + 1)) do (
+        write n1;
+        write n3;
+        n3 := n3+1
+    );
+
+    n1 := n1+1;
+)

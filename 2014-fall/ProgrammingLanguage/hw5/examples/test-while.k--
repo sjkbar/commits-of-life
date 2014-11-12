@@ -1,0 +1,3 @@
+let x := 10 in
+    let proc while1(y) = (if not(y = 0) then (y := y-1; write y; while1<y>) else (unit)) 
+        in while1(x)

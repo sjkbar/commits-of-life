@@ -1,0 +1,35 @@
+LETV(
+  "n1", exp1,
+  LETV(
+    "n2", exp2,
+    WHILE(
+      LESS(
+        VAR(
+          "n1"
+        ),
+        ADD(
+          VAR(
+            "n2"
+          ),
+          NUM(
+            1
+          )
+        )
+      ),
+      SEQ(
+      exp3,
+        ASSIGN(
+          "n1",
+          ADD(
+            VAR(
+              "n1"
+            ),
+            NUM(
+              1
+            )
+          )
+        )
+      )
+    )
+  )
+)

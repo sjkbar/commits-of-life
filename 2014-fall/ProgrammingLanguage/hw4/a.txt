@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>
+        Course Not Found
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link href="/style.css?v=05" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/superfish.css?v=07" media="screen">
+    <link rel="stylesheet" type="text/css" href="/css/superfish-sidebar.css?v=06" media="screen">
+
+    <script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.bgiframe.min.js"></script>
+    <script type="text/javascript" src="/js/hoverIntent.js"></script>
+    <script type="text/javascript" src="/js/superfish.js"></script>
+
+    <script type='text/javascript'>
+
+        $(document).ready(function () {
+            $('ul.sf-menu').superfish({
+                speed: 100                          // faster animation speed 
+            }).find('ul').bgIframe({ opacity: false });
+
+            $('ul.sf-menuv').superfish({
+                speed: 100                          // faster animation speed 
+            }).find('ul').bgIframe({ opacity: false });
+        }); 
+     
+    </script>
+
+</head>
+<body>
+    <div id="outerwrap">
+    <div id="wrap">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <div id="cu-identity">
+                        <div id="cu-logo">
+                            <img id="header" name="header" src="/images/headers/header1.jpg" alt="Cornell University" border="0" usemap="#Map" />
+                            <map name="Map">
+                                <area shape="rect" coords="4,4,70,70" href="http://www.cornell.edu">
+                                <area shape="rect" coords="80,15,250,40" href="http://www.cornell.edu">
+                                <area shape="rect" coords="80,41,380,60" href="/">
+                            </map>
+                        </div>
+                        <div id="search-navigation">
+                            <ul>
+                                <li><a href="/Information/Search/">Search CS</a></li>
+                                <li><a href="http://www.cornell.edu/search/">Search Cornell</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class='sf-menu'><li><a  href='/Information/index.htm'>INFORMATION</a><ul>
+  <li><a href='/Information/index.htm'>About the Department</a></li>
+  <li><a href='/Information/ContactUs/index.htm'>Contact Us</a></li>
+  <li><a href='/Information/News/index.htm'>News</a></li>
+  <li><a href='/Information/Awards/index.htm'>Awards</a><ul>
+  <li><a href='/Information/Awards/index.htm'>Awards Overview</a></li>
+  <li><a href='/Information/Awards/AwardslistedbyRecipient/index.htm'>Listed by Recipient</a></li>
+  <li><a href='/Information/Awards/ResearchAwards/index.htm'>Research Awards</a></li>
+  <li><a href='/Information/Awards/EducationAwards/index.htm'>Education Awards</a></li>
+  <li class='last'><a href='/Information/Awards/ServiceAwards/index.htm'>Service Awards</a></li>
+  </ul></li>
+  <li><a href='/Information/Administration/index.htm'>Administration</a></li>
+  <li><a href='/Information/DepartmentLife/index.htm'>Department Life</a></li>
+  <li><a href='/Information/PoliciesandFAQs/index.htm'>Policies and FAQs</a></li>
+  <li><a href='/Information/AnnualReports/index.htm'>Annual Reports</a></li>
+  <li><a href='/Information/pubs/index.htm'>Publications</a><ul>
+  <li><a href='/Information/pubs/index.htm'>Publications Overview</a></li>
+  <li><a href='/Information/pubs/BooksbyAuthor/index.htm'>Books by Author</a></li>
+  <li class='last'><a href='/Information/pubs/BooksChronologically/index.htm'>Books Chronologically</a></li>
+  </ul></li>
+  <li><a href='/Information/JobPostings/index.htm'>Job Postings</a><ul>
+  <li><a href='/Information/JobPostings/index.htm'>Job Postings Overview</a></li>
+  <li><a href='/Information/JobPostings/FacultyPositions/index.htm'>Faculty Positions: All</a></li>
+  <li><a href='/Information/JobPostings/Bioinformatics/index.htm'>Faculty Positions: Bioinformatics</a></li>
+  <li class='last'><a href='/Information/JobPostings/Researchpositions/index.htm'>Research Positions</a></li>
+  </ul></li>
+  <li><a href='/Information/Ithaca/index.htm'>Ithaca Info</a></li>
+  <li class='last'><a href='/Information/SiteMap/index.htm'>Sitemap</a></li>
+  </ul></li>
+<li><a  href='/Events/index.htm'>EVENTS</a><ul>
+  <li><a href='/Events/colloquium/index.htm'>CS Colloquium</a></li>
+  <li><a href='/Events/saltonseries/index.htm'>Salton Lecture Series</a></li>
+  <li><a href='/Events/sems/index.htm'>Seminars / Lectures</a></li>
+  <li class='last'><a href='/Events/40years/index.htm'>40th Anniv Symposium</a></li>
+  </ul></li>
+<li><a  href='/Admissions/index.htm'>ADMISSIONS</a><ul>
+  <li class='first outlink'><a href='/ugrad/uadmis/index.htm'>Undergraduate</a></li>
+  <li class='outlink'><a href='/grad/MEngProgram/MEngAdmissions/index.htm'>Master of Engineering</a></li>
+  <li class='last outlink'><a href='/grad/PhDProgram/index.htm'>Ph.D.</a></li>
+  </ul></li>
+<li><a  href='/People/index.htm'>PEOPLE</a><ul>
+  <li><a href='/People/DirectorySearch/index.asp'>Directory Search</a></li>
+  <li><a href='/People/chair/index.htm'>Chair</a></li>
+  <li><a href='/People/faculty/index.htm'>Faculty</a></li>
+  <li><a href='/People/Researchers/index.htm'>Researchers</a></li>
+  <li><a href='/People/Staff/index.htm'>Staff</a></li>
+  <li><a href='/People/Students/PhDStudents/index.htm'>Ph.D. Students</a></li>
+  <li><a href='/People/Students/MEngStudents/index.htm'>M.Eng. Students</a></li>
+  <li class='last'><a href='/People/Students/AlumnibyYear/index.htm'>CS Alumni</a></li>
+  </ul></li>
+<li class='current'><a  href='/Courses/index.htm'>COURSES</a><ul>
+  <li><a href='/Courses/ListofCSCourses/index.htm'>List of Courses</a></li>
+  <li><a href='/Courses/SummerCourses/index.htm'>Summer Courses</a></li>
+  <li><a href='/Courses/ExamSchedules/index.htm'>Exams</a></li>
+  <li class='last'><a href='/Courses/CourseandRoomRoster/index.htm'>Course and Room Roster</a></li>
+  </ul></li>
+<li><a  href='/ugrad/index.htm'>UNDERGRADUATE</a><ul>
+  <li><a href='/ugrad/uadmis/index.htm'>Admissions</a></li>
+  <li><a href='/ugrad/FirstCSCourse/index.htm'>Your First CS Course</a></li>
+  <li><a href='/ugrad/uadvise/index.htm'>Student Advising</a></li>
+  <li><a href='/ugrad/CSMajor/index.htm'>CS Major</a><ul>
+  <li><a href='/ugrad/CSMajor/index.htm'>CS Major Overview</a></li>
+  <li><a href='/ugrad/CSMajor/QuickChart/index.htm'>Quick Chart</a></li>
+  <li><a href='/ugrad/CSMajor/UsefulForms/index.htm'>Useful Forms</a></li>
+  <li><a href='/ugrad/CSMajor/AcademicPlan/index.htm'>Academic Plan</a></li>
+  <li><a href='/ugrad/CSMajor/Vectors/index.htm'>Vectors</a></li>
+  <li><a href='/ugrad/CSMajor/TechnicalElectives/index.htm'>Technical Electives</a></li>
+  <li><a href='/ugrad/CSMajor/TransferCredits/index.htm'>Transfer Credits</a></li>
+  <li class='last'><a href='/ugrad/CSMajor/CSwithOtherMajorsAreas/index.htm'>CS with Other Majors/Areas</a></li>
+  </ul></li>
+  <li><a href='/ugrad/RulesandProceduresEngineering/index.htm'>CS Engineering</a><ul>
+  <li><a href='/ugrad/RulesandProceduresEngineering/index.htm'>Rules and Procedures</a></li>
+  <li><a href='/ugrad/RulesandProceduresEngineering/EngineeringChecklist/index.htm'>Checklist</a></li>
+  <li class='last'><a href='/ugrad/RulesandProceduresEngineering/ChoosingYourElectives/index.htm'>Electives</a></li>
+  </ul></li>
+  <li><a href='/ugrad/RulesandProceduresArts/index.htm'>CS Arts & Sciences</a><ul>
+  <li><a href='/ugrad/RulesandProceduresArts/index.htm'>Rules and Procedures</a></li>
+  <li class='last'><a href='/ugrad/RulesandProceduresArts/ArtsChecklist/index.htm'>Checklist</a></li>
+  </ul></li>
+  <li><a href='/ugrad/CSMinor/index.htm'>Minors</a><ul>
+  <li><a href='/ugrad/CSMinor/index.htm'>CS Minor</a></li>
+  <li class='last'><a href='/ugrad/CSMinor/GameDesignMinor/index.htm'>Game Design Minor</a></li>
+  </ul></li>
+  <li><a href='/ugrad/cscareers/index.htm'>Career Information</a><ul>
+  <li><a href='/ugrad/cscareers/index.htm'>Career Info Overview</a></li>
+  <li><a href='/ugrad/cscareers/Co-opExperiences/index.htm'>Co-op Program</a></li>
+  <li><a href='/ugrad/cscareers/AlumniDestinations/index.htm'>Alumni Destinations</a></li>
+  <li class='last'><a href='/ugrad/cscareers/PlacementReport/index.htm'>Placement Report</a></li>
+  </ul></li>
+  <li><a href='/ugrad/uresch/index.htm'>Undergrad Research</a><ul>
+  <li><a href='/ugrad/uresch/index.htm'>Ugrad Research Overview</a></li>
+  <li><a href='/ugrad/uresch/ResearchProjects/index.htm'>Research Projects</a></li>
+  <li class='last'><a href='/ugrad/uresch/RegisteringforCS4999/index.htm'>Independent Research (CS 4999)</a></li>
+  </ul></li>
+  <li><a href='/ugrad/ugroups/index.htm'>Student Groups</a></li>
+  <li><a href='/ugrad/uevents/index.htm'>Events</a></li>
+  <li><a href='/ugrad/ComputerLab/index.htm'>Computer Labs</a></li>
+  <li><a href='/ugrad/ustaff/index.htm'>Staff</a></li>
+  <li class='last'><a href='/ugrad/uphilos/index.htm'>Philosophy</a></li>
+  </ul></li>
+<li><a  href='/grad/index.htm'>GRADUATE</a><ul>
+  <li><a href='/grad/MEngProgram/index.htm'>M.Eng Program</a><ul>
+  <li><a href='/grad/MEngProgram/index.htm'>MEng Overview</a></li>
+  <li><a href='/grad/MEngProgram/MEngAdmissions/index.htm'>Admissions</a></li>
+  <li><a href='/grad/MEngProgram/FAQsforCurrentStudents/index.htm'>FAQs</a></li>
+  <li><a href='/grad/MEngProgram/DegreeRequirements/index.htm'>Degree Requirements</a></li>
+  <li><a href='/grad/MEngProgram/PreapprovedCourses/index.htm'>Pre-approved non-CS Courses</a></li>
+  <li><a href='/grad/MEngProgram/CourseEnrollment/index.htm'>Info on Course Enrollment</a></li>
+  <li><a href='/grad/MEngProgram/ProjectInformation/index.htm'>MEng Projects</a></li>
+  <li class='last'><a href='/grad/MEngProgram/Graduation/index.htm'>Graduation</a></li>
+  </ul></li>
+  <li class='last'><a href='/grad/PhDProgram/index.htm'>Ph.D. Program</a><ul>
+  <li><a href='/grad/PhDProgram/index.htm'>PhD Overview</a></li>
+  <li><a href='/grad/PhDProgram/ApplicantsGuide/index.htm'>Applicant Guide</a></li>
+  <li><a href='/grad/PhDProgram/PhDFAQ/index.htm'>Applicant FAQ</a></li>
+  <li><a href='/grad/PhDProgram/PhDRequirements/index.htm'>Ph. D.  Requirements</a></li>
+  <li><a href='/grad/PhDProgram/Minor/index.htm'>Graduate Minor</a></li>
+  <li><a href='/grad/PhDProgram/SpecialMasters/index.htm'>Special Masters</a></li>
+  <li class='last'><a href='/grad/PhDProgram/PhDGraduation/index.htm'>Graduation</a></li>
+  </ul></li>
+  </ul></li>
+<li><a  class='rightmost'  href='/Research/index.htm'>RESEARCH</a><ul>
+  <li><a href='/Research/architecture/index.htm'>Architecture</a></li>
+  <li><a href='/Research/ai/index.htm'>Artificial Intelligence</a></li>
+  <li><a href='/Research/compbio/index.htm'>Computational Biology</a></li>
+  <li><a href='/Research/dataSystems/index.htm'>Database Systems</a></li>
+  <li><a href='/Research/graphics/index.htm'>Graphics</a></li>
+  <li><a href='/Research/lang/index.htm'>Programming Languages</a></li>
+  <li><a href='/Research/Robotics/index.htm'>Robotics</a></li>
+  <li><a href='/Research/scientif/index.htm'>Scientific Computing</a></li>
+  <li><a href='/Research/Security/index.htm'>Security</a></li>
+  <li><a href='/Research/systems/index.htm'>Systems and Networking</a></li>
+  <li class='last'><a href='/Research/theory/index.htm'>Theory of Computing</a></li>
+  </ul></li>
+    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="/images/space.gif" width="1" height="12"></td>
+            </tr>
+            <tr>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom: solid 1px #bbbbbb; border-collapse: collapse;">
+                        <tr>
+                            <td width="230" valign="top" bgcolor="#E8E8E8" style="border-top: solid 1px #bbbbbb;border-bottom: solid 1px #bbbbbb;border-right: solid 1px #bbbbbb;">
+                                <table width="230" border="0" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td>
+                                            <img src='/images/styles/courses.jpg?v=06' style='border-bottom: solid 1px #bbbbbb;'  width='230' height='135' alt='design'>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <ul class='sf-menuv sf-sidebar'><li class=''><a href='/Courses/index.htm'>Courses Overview</a></li>
+<li class=''><a href='/Courses/ListofCSCourses/index.htm'>List of Courses</a></li>
+<li class=''><a href='/Courses/SummerCourses/index.htm'>Summer Courses</a></li>
+<li class=''><a href='/Courses/ExamSchedules/index.htm'>Exams</a></li>
+<li class=' last'><a href='/Courses/CourseandRoomRoster/index.htm'>Course and Room Roster</a></li>
+<li class=' first outlink'><a href='http://courses.cuinfo.cornell.edu/CoScollege.php?college=CIS'>CIS Courses</a></li>
+<li class=''>&nbsp;</li></ul>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td valign="top">
+                                <div id="content">
+                                <div class="small">
+                                    You are here:
+                                    <a href='/index.htm'>CS Home</a> &raquo; <a href='/Courses/index.htm'>Courses</a> &raquo; <a href='index.htm'>Course Not Found</a>
+                                </div>
+
+                                <p class="title">
+        Error: Missing Course Page</p><p>
+        If you are searching for a course page that can not be found, there currently
+        may not be a web site for that course. The course may be too new to have a
+        website (course not offered yet), or the instructor may have elected not to
+        have a course website. If you have any questions regarding a course that has
+        been previously offered, please contact the most recent course instructor or
+        <a href="mailto:ugrad&#64;cs.cornell.edu">ugrad&#64;cs.cornell.edu</a>.</p>
+
+                                </div>
+
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" class="footer">
+                        <tr>
+                            <td align="left"><a href="http://www.cis.cornell.edu">Computing and Information
+                                Science</a> &raquo; <a href="/">Computer Science</a> </td>
+                            <td align="right"><a href="/Information/ContactUS/index.htm">Contact Us</a> | <a
+                                href="/feedback/feedback.aspx">Feedback</a> </td>
+                        </tr>
+                    </table>
+                    
+                </td>
+            </tr>
+        </table>
+
+        <script type='text/javascript'>
+
+            var aa = new Array(
+               "header1.jpg",
+               "header2.jpg",
+               "header3.jpg",
+               "header4.jpg"
+            );
+
+            document.images["header"].src = "/images/headers/" + aa[Math.floor(Math.random() * 4)];
+	
+        </script>
+
+    </div>
+    </div>
+</body>
+</html>

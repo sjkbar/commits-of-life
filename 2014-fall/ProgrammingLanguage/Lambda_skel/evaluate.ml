@@ -37,16 +37,67 @@ module Evaluator =
         match subst with
         | Subs (str, lexp) -> print_string str; print_string " | "; print_lexp lexp
 
-    let betaReduction formalParam body exp =
-        let substitution = (makeSubstitution formalParam exp) in
-        let newLexp = (applySubs substitution body) in
-            newLexp
+    let isBetaReducible lexp =
+        match lexp with
+        | Lambda.App ((Lambda.Lam _), _) -> true
+        | _ -> false
+
+    let betaReduction lexp =
+        match lexp with
+        | Lambda.App ((Lambda.Lam (formalParam, body)), exp) ->
+            let substitution = (makeSubstitution formalParam exp) in
+            let newLexp = (applySubs substitution body) in
+                newLexp
+        | _ -> raise (Error "betaReduction fail")
 
 	let rec reduce : Lambda.lexp -> Lambda.lexp
 	= fun exp ->
-    match exp with
+            print_endline "";
+            print_endline "*******EXP**********";
+            print_lexp exp;
+            print_endline "";
+            print_endline "--------------------";
+    if (isBetaReducible exp)
+        then (
+            let newLexp = (betaReduction exp) in
+                (reduce newLexp)
+        )
+        else (
+            match exp with
+            | Lambda.App (exp1, exp2) ->
+                if (isBetaReducible exp1)
+                    then (
+                        let newLexp1 = (betaReduction exp1) in
+                        let newTotalLexp = Lambda.App (newLexp1, exp2) in
+                        (reduce (newTotalLexp))
+                    )
+                    else (
+                        if (isBetaReducible exp2)
+                            then (
+                                let newLexp2 = (betaReduction exp2) in
+                                let newTotalLexp = Lambda.App (exp1, newLexp2) in
+                                newTotalLexp
+                            )
+                            else (
+                                let newTotalLexp = (Lambda.App ((reduce exp1), (reduce exp2))) in
+                                if( isBetaReducible newTotalLexp )
+                                    then (
+                                        (betaReduction newTotalLexp)
+                                    )
+                                    else (
+                                        newTotalLexp
+                                    )
+                            )
+                    )
+            | Lambda.Lam (id, exp1) ->
+                    Lambda.Lam (id, (reduce exp1))
+            | Lambda.Id id ->
+                Lambda.Id id
+        )
+(*
     | Lambda.App ((Lambda.Lam (formalParam, body)), exp1) ->
             (reduce (betaReduction formalParam body exp1))
+
     | Lambda.App (exp1, exp2) ->
         (match exp1 with
             | Lambda.App ((Lambda.Lam (formalParam, body)), exp3) ->
@@ -55,24 +106,15 @@ module Evaluator =
             | _ -> (match exp2 with 
                 | Lambda.App ((Lambda.Lam (formalParam, body)), exp3) ->
                     let newLexp = Lambda.App( exp1, (betaReduction formalParam body exp3)) in
-                    (reduce newLexp)
-                | _ -> Lambda.App((reduce exp1), (reduce exp2))))
-            (*kA
-        print_endline "APP";
-        let r1 = (reduce exp1) in
-            let result = (match r1 with
-                | Lambda.Lam _ -> print_endline "APP1"; reduce (Lambda.App (r1, exp2))
-                | _ -> print_endline "APP2"; Lambda.App(r1, (reduce exp2))) in
-                print_endline "@@@@@@@@@@RESULT@@@@@@@@";
-                print_lexp result;
-                print_endline "";
-                print_endline "@@@@@@@@@@@@@@@@@@@@@@@@";
-                result
-                *)
-
-
-    | Lambda.Lam (id, exp1) -> 
-        Lambda.Lam (id, (reduce exp1))
-    | Lambda.Id id -> 
+                        newLexp
+                | _ ->
+                    let newLexp = Lambda.App((reduce exp1), (reduce exp2)) in
+                        (match newLexp with
+                        | Lambda.App ((Lambda.Lam (formalParam, body)), exp3) -> (betaReduction formalParam body exp3)
+                        | _ -> newLexp)))
+    | Lambda.Lam (id, exp1) ->
+            Lambda.Lam (id, (reduce exp1))
+    | Lambda.Id id ->
         Lambda.Id id
+        *)
   end

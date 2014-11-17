@@ -36,13 +36,13 @@ let main () =
         let lexbuf = Lexing.from_channel (if !src = "" then stdin else open_in !src) in
         Parser.program Lexer.start lexbuf
     in
-   
+  
 	if !pp then (KParseTreePrinter.print (read_program()))
-	else if !psm5 then ignore (Sm5.print (Translator.trans (read_program())))
-	else if !psonata then ignore (Sonata.print (Rozetta.trans (Translator.trans (read_program()))))
+	else if !psm5 then ignore (Sm5.print (Translate_k.trans (read_program())))
+	else if !psonata then ignore (Sonata.print (Rozetta.trans (Translate_k.trans (read_program()))))
 	else if !k then ignore (K.run (K.emptyMemory, K.emptyEnv, (read_program())))
-	else if !sm5 then ignore (Sm5.run (Translator.trans (read_program())))
-	else if !sonata then ignore (Sonata.run(Rozetta.trans (Translator.trans (read_program()))))
+	else if !sm5 then ignore (Sm5.run (Translate_k.trans (read_program())))
+	else if !sonata then ignore (Sonata.run(Rozetta.trans (Translate_k.trans (read_program()))))
     else 
         (if !src <> "" then failwith "Specify one of the options if you want to read in .k- file" else
         let sm5_pgm = [PUSH (Val (Z 1)); PUSH (Val (Z 2)); ADD; PUT] in 

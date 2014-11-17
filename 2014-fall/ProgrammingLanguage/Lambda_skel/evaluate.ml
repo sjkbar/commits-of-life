@@ -52,15 +52,10 @@ module Evaluator =
 
 	let rec reduce : Lambda.lexp -> Lambda.lexp
 	= fun exp ->
-            print_endline "";
-            print_endline "*******EXP**********";
-            print_lexp exp;
-            print_endline "";
-            print_endline "--------------------";
     if (isBetaReducible exp)
         then (
-            let newLexp = (betaReduction exp) in
-                (reduce newLexp)
+            let newTotalLexp = (betaReduction exp) in
+            (reduce newTotalLexp)
         )
         else (
             match exp with
@@ -69,7 +64,7 @@ module Evaluator =
                     then (
                         let newLexp1 = (betaReduction exp1) in
                         let newTotalLexp = Lambda.App (newLexp1, exp2) in
-                        (reduce (newTotalLexp))
+                        (reduce newTotalLexp)
                     )
                     else (
                         if (isBetaReducible exp2)
@@ -82,7 +77,7 @@ module Evaluator =
                                 let newTotalLexp = (Lambda.App ((reduce exp1), (reduce exp2))) in
                                 if( isBetaReducible newTotalLexp )
                                     then (
-                                        (betaReduction newTotalLexp)
+                                        (reduce newTotalLexp)
                                     )
                                     else (
                                         newTotalLexp

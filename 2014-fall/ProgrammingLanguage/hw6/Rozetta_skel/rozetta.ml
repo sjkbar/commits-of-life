@@ -51,10 +51,12 @@ module Rozetta = struct
             let randomName=  counter() in
             let temp_loc_name = String.concat " " [randomName; "_loc_name"] in
             let temp_var_name = String.concat " " [randomName; "_var_name"] in
-            let temp_proc_name = String.concat " " [randomName; "_proc_name"] in
-            let command1 = [Sonata.BIND temp_loc_name; Sonata.BIND temp_var_name; Sonata.BIND temp_proc_name; Sonata.BIND temp_proc_name] in
-            let command2 = [(Sonata.PUSH (Sonata.Fn (randomName, rest_sonata_command)))] in
-            let command3 = [Sonata.PUSH (Sonata.Id temp_proc_name); Sonata.PUSH(Sonata.Id temp_proc_name); Sonata.PUSH (Sonata.Id temp_var_name); Sonata.PUSH (Sonata.Id temp_loc_name); Sonata.CALL] in
+            let temp_proc_name1 = String.concat " " [randomName; "_proc_name1"] in
+            let temp_proc_name2 = String.concat " " [randomName; "_proc_name2"] in
+            let temp_return_name = String.concat " " [randomName; "_return_name"] in
+            let command1 = [Sonata.BIND temp_loc_name; Sonata.BIND temp_var_name; Sonata.BIND temp_proc_name1; Sonata.BIND temp_proc_name2] in
+            let command2 = [(Sonata.PUSH (Sonata.Fn (temp_return_name, rest_sonata_command)))] in
+            let command3 = [Sonata.PUSH (Sonata.Id temp_proc_name2); Sonata.PUSH(Sonata.Id temp_proc_name1); Sonata.PUSH (Sonata.Id temp_var_name); Sonata.PUSH (Sonata.Id temp_loc_name); Sonata.CALL] in
             let command4 = [] in
             List.append command1 (List.append command2 (List.append command3 command4)) in
 (*

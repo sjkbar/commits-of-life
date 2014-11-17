@@ -126,7 +126,6 @@ struct
     |[] -> print_endline ""
     |hd::tl -> print_svalue hd; print_svalues tl
   let rec eval (s,m,e,c) = 
-  (*
     print_endline "********************************";
     print_string "svalue3 : ";
     print_svalues s;
@@ -135,7 +134,6 @@ struct
     print c;
     print_endline " ";
     print_endline "-------------------------------";
-    *)
 	eval(
      match (s,m,e,c) with
        (_,_,_,PUSH(Val v)::c) -> (V v::s, m, e, c)

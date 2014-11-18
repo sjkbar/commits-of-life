@@ -35,8 +35,10 @@ module Rozetta = struct
                     let change_result_function_arg_order =
                         [Sm5.BIND result; Sm5.BIND loc; Sm5.BIND value; Sm5.BIND kontinum]
                         @ [Sm5.PUSH (Sm5.Id result); Sm5.PUSH(Sm5.Id kontinum); Sm5.PUSH (Sm5.Id value); Sm5.PUSH (Sm5.Id loc)] in
+                    let unbind_function_args = [Sm5.UNBIND; Sm5.POP; Sm5.UNBIND; Sm5.POP; Sm5.UNBIND; Sm5.POP; Sm5.UNBIND; Sm5.POP] in
                     let call = [Sm5.CALL] in
-                    let new_command = (trans (command @ change_result_function_arg_order @ call)) in
+
+                    let new_command = (trans (command @ change_result_function_arg_order @ unbind_function_args @ call)) in
                         Sonata.Fn(str, new_command)) in
 		    Sonata.PUSH sonata_obj in
 
@@ -63,9 +65,10 @@ module Rozetta = struct
                 let bind_functin_args = [Sonata.BIND loc; Sonata.BIND value; Sonata.BIND func1; Sonata.BIND func2] in
                 let push_kontinum_function_args = [Sonata.PUSH(Sonata.Fn (kontinum_formal_param, rest_sonata_command)); Sonata.PUSH (Sonata.Val (Sonata.Z 1111)); Sonata.MALLOC] in
                 let push_binded_function_args =  [Sonata.PUSH(Sonata.Id func2); Sonata.PUSH(Sonata.Id func1); Sonata.PUSH (Sonata.Id value); Sonata.PUSH (Sonata.Id loc)] in
+                let unbind_function_args = [Sonata.UNBIND; Sonata.POP; Sonata.UNBIND; Sonata.POP; Sonata.UNBIND; Sonata.POP; Sonata.UNBIND; Sonata.POP] in
                 let call = [Sonata.CALL] in
 
-                bind_functin_args @ push_kontinum_function_args @ push_binded_function_args @ call
+                bind_functin_args @ push_kontinum_function_args @ push_binded_function_args @ unbind_function_args @ call
           in
 
     fun command ->

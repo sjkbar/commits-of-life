@@ -69,6 +69,7 @@ module Rozetta = struct
             매모리 값 읽어서 환경에 컨티넘을 써줌.
 *)
 
+    let emptyContinum = ref(0) in
     fun command -> 
         match command with
         | [] -> []
@@ -85,6 +86,11 @@ module Rozetta = struct
 	    | (Sm5.GET)::tl -> (Sonata.GET)::trans(tl);
 	    | (Sm5.PUT)::tl -> (Sonata.PUT)::trans(tl);
 	    | (Sm5.CALL)::tl -> 
+            if !emptyContinum = 0
+                then
+                    (print_endline "@@@@@@@@@@@@@@@@@@@@@@@@@@";
+                    incr emptyContinum; List.append [Sonata.PUSH (Sonata.Val (Sonata.L (-111, 0))); Sonata.BIND "@#kontinum"] (trans_call_cmd (trans tl)))
+                else
                     (trans_call_cmd (trans tl)) 
 	    | (Sm5.ADD)::tl -> (Sonata.ADD)::trans(tl);
 	    | (Sm5.SUB)::tl -> (Sonata.SUB)::trans(tl);

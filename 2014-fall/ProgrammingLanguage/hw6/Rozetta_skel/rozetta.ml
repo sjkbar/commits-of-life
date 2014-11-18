@@ -33,10 +33,10 @@ module Rozetta = struct
                     let kontinum = String.concat "_" [randomName; "kontinum"] in
 
                     let change_result_function_arg_order =
-                        [Sonata.BIND result; Sonata.BIND loc; Sonata.BIND value; Sonata.BIND kontinum]
-                        @ [Sonata.PUSH (Sonata.Id result); Sonata.PUSH(Sonata.Id kontinum); Sonata.PUSH (Sonata.Id value); Sonata.PUSH (Sonata.Id loc)] in
-                    let call = [Sonata.CALL] in
-                    let new_command = (trans command) @ change_result_function_arg_order @ call in
+                        [Sm5.BIND result; Sm5.BIND loc; Sm5.BIND value; Sm5.BIND kontinum]
+                        @ [Sm5.PUSH (Sm5.Id result); Sm5.PUSH(Sm5.Id kontinum); Sm5.PUSH (Sm5.Id value); Sm5.PUSH (Sm5.Id loc)] in
+                    let call = [Sm5.CALL] in
+                    let new_command = (trans (command @ change_result_function_arg_order @ call)) in
                         Sonata.Fn(str, new_command)) in
 		    Sonata.PUSH sonata_obj in
 
@@ -83,6 +83,7 @@ module Rozetta = struct
 	    | (Sm5.UNBIND)::tl -> (Sonata.UNBIND)::trans(tl);
 	    | (Sm5.GET)::tl -> (Sonata.GET)::trans(tl);
 	    | (Sm5.PUT)::tl -> (Sonata.PUT)::trans(tl);
+	    | (Sm5.CALL)::[] -> [Sonata.CALL];
 	    | (Sm5.CALL)::tl -> 
                     (trans_call_cmd (trans tl)) 
 	    | (Sm5.ADD)::tl -> (Sonata.ADD)::trans(tl);

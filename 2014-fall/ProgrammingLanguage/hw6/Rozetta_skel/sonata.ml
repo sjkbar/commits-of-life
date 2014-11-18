@@ -118,7 +118,7 @@ struct
   let rec print_svalue svalue =
     match svalue with
     | V value -> printv value; print_string " "
-    | P (str, command, _) -> print_string "PROC "; print_string str; print command; print_string " "
+    | P (str, command, _) -> print_string "PROC "; print_string str; print_string " "
     | M (str, new_svalue) -> print_string str; print_string " "; print_svalue new_svalue; print_string " "
 
   let rec print_svalues svalues =
@@ -127,13 +127,12 @@ struct
     |hd::tl -> print_svalue hd; print_svalues tl
   let rec eval (s,m,e,c) = 
     print_endline "********************************";
-    print_string "svalue3 : ";
+    print_string "svalue : ";
     print_svalues s;
-    print_string " | ";
+    print_endline "################################";
     print_string "commands : ";
     print c;
     print_endline " ";
-    print_endline "-------------------------------";
 	eval(
      match (s,m,e,c) with
        (_,_,_,PUSH(Val v)::c) -> (V v::s, m, e, c)

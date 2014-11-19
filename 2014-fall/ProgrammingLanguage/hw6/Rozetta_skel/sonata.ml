@@ -125,6 +125,14 @@ struct
     match svalues with
     |[] -> print_endline ""
     |hd::tl -> print_svalue hd; print_svalues tl
+
+  let rec print_svalues svalues =
+    match svalues with
+    |[] -> print_endline ""
+    |hd::(second::(third::tl)) -> print_svalue hd; print_string " | "; print_svalue second; print_string " | "; print_svalue third
+    |hd::(second::tl) -> print_svalue hd; print_string " | "; print_svalue second
+    |hd::tl -> print_svalue hd
+
   let rec eval (s,m,e,c) = 
     print_endline "********************************";
     print_string "svalue : ";

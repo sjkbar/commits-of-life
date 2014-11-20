@@ -45,8 +45,15 @@ module M_Vanilla : M_Runner = struct
          | SUB -> (fun (v1,v2) -> Num (getNum v1 - getNum v2))
          | AND -> (fun (v1,v2) -> Bool (getBool v1 && getBool v2))
          | OR ->  (fun (v1,v2) -> Bool (getBool v1 || getBool v2))
-         | EQ ->  (* TODO: implementation *)
-            raise (RuntimeError "not implemented")
+         | EQ ->  (fun (v1,v2) ->
+            (match (v1, v2) with
+                | ((String s1), (String s2)) -> Bool(s1 = s2)
+                | ((Num n1), (Num n2)) -> Bool(n1 = n2)
+                | ((Bool b1), (Bool b2)) -> Bool(b1 = b2)
+                | ((Loc l1), (Loc l2)) -> Bool(l1 = l2)
+                | ((Pair (p1a, p1b)), (Pair (p2a, p2b))) -> Bool(p1a = p2a && p1b = p2b)
+                | ((Closure c1), (Closure c2)) -> Bool(c1 = c2)
+                | _ -> Bool(false)))
 
     let rec printValue =
         function Num n -> print_int n; print_newline()
@@ -64,16 +71,22 @@ module M_Vanilla : M_Runner = struct
             let (c, env') = getClosure v1 in
             let (v2, m'') = eval env m' e2 in
             	(match c with Fun (x, e) -> eval (env' @+ (x,v2)) m'' e
-                        | RecFun (f, x, e) -> (* TODO: implementation *)
-                            raise (RuntimeError "not implemented"))
+                        | RecFun (f, x, e) -> 
+                            let newEnv = (env' @+ (x,v2)) @+ (f, (Closure (RecFun(f,x,e), env'))) in
+                            eval newEnv m'' e)
          | LET (NREC (x, e1), e2) ->
             let (v1, m') = eval env mem e1 in
             	eval (env @+ (x,v1)) m' e2
          | LET (REC (f, e1), e2) ->
             let (v1, m') = eval env mem e1 in
-            let (c, env') = getClosure v1 in
-                (* TODO: implementation *)
-                raise (RuntimeError "not implemented")
+            let (fexpr, env') = getClosure v1 in
+            let (formalParam, functionBody) =
+                (match fexpr with
+                    | Fun (id, exp) -> (id, exp)
+                    | RecFun (functionName, id, exp) -> (id, exp)
+                ) in
+            let newClosure = Closure (RecFun(f, formalParam, functionBody), env') in
+            	eval (env @+ (f, newClosure)) m' e2
          | IF (e1, e2, e3) ->
             let (v1, m') = eval env mem e1 in
             	eval env m' (if getBool v1 then e2 else e3)
@@ -91,6 +104,10 @@ module M_Vanilla : M_Runner = struct
             let (v, m') = eval env mem e in
             let (l, m'') = malloc m' in  
 				(Loc l, store m'' (l,v))
+         | PAIR (e1, e2) ->
+            let (v1, m') = eval env mem e1 in
+            let (v2, m'') = eval env m' e2 in
+                Pair(v1, v2), m''
          | _ -> (* TODO: implementation *)
             raise (RuntimeError "not implemented")
 

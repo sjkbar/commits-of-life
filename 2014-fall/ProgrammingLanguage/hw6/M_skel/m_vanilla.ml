@@ -108,8 +108,32 @@ module M_Vanilla : M_Runner = struct
             let (v1, m') = eval env mem e1 in
             let (v2, m'') = eval env m' e2 in
                 Pair(v1, v2), m''
-         | _ -> (* TODO: implementation *)
-            raise (RuntimeError "not implemented")
+         | ASSIGN (exp1, exp2) -> 
+            let (l, m') = eval env mem exp1 in
+            let (v, m'') = eval env m' exp2 in
+                (match l with
+                | Loc loc -> v, store m'' (loc, v)
+                | _ -> raise (RuntimeError "ASSIGN need Loc loc"))
+
+         | SEQ (exp1, exp2) ->
+            let (v1, m1) = eval env mem exp1 in
+            let (v2, m2) = eval env m1 exp2 in
+                (v2, m2)
+         | BANG (exp1) ->
+            let (l, m') = eval env mem exp1 in
+                (match l with
+                | Loc loc -> (fetch m' loc), m'
+                | _ -> raise (RuntimeError "BANG need Loc loc"))
+         | SEL1 (exp1) ->
+            let (pair, m') = eval env mem exp1 in
+                (match pair with 
+                |Pair (v1, v2) -> v1, m'
+                | _ -> raise (RuntimeError "SEL1 need Loc loc"))
+         | SEL2 (exp1) ->
+            let (pair, m') = eval env mem exp1 in
+                (match pair with 
+                |Pair (v1, v2) -> v2, m'
+                | _ -> raise (RuntimeError "SEL2 need Loc loc"))
 
     let emptyEnv = (fun x -> error ("unknown id: " ^ x))
     let emptyMem = (0, fun l -> error ("unknown loc: " ^ string_of_int l))

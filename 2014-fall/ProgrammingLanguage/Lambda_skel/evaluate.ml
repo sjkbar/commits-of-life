@@ -8,108 +8,97 @@ module Evaluator =
   struct
 	exception Error of string
 
-    type subtstitution = Subs of string * Lambda.lexp
+  type substitution = (string * Lambda.lexp) list
 
-	let counter =
-	  let count = ref (-1) in
-	    fun () -> incr count; "#" ^ string_of_int(!count)
+  let rec generateString: string list -> string =
+    fun sl ->
+      let rec convert: int -> string list -> string =
+        fun i csl ->
+          let p = i / 26 in
+          let q = i mod 26 in
+          let s = String.make 1 (char_of_int (97+q)) in
+          if p = 0
+          then String.concat "" (csl @ [s])
+          else convert p (csl @ [s]) in
+      let rec generateString_aux: int -> string =
+        fun i ->
+          let newString = convert i [] in
+          if List.exists (fun x ->
+                           String.compare newString x = 0)
+                         sl
+          then generateString_aux (i + 1)
+          else newString in
+      generateString_aux 0
 
-    let makeSubstitution formalParam exp1 = (Subs (formalParam, exp1))
+  let rec fv_lexp: Lambda.lexp -> string list =
+    fun l ->
+      match l with
+      | Lambda.Id s ->
+          [s]
+      | Lambda.Lam (s, e) ->
+          List.filter (fun x -> x <> s) (fv_lexp e)
+      | Lambda.App (e1, e2) ->
+          ((fv_lexp e1) @ (fv_lexp e2))
 
-    let rec applySubs subst lexp =
-        let Subs (targetString, newExp) = subst in
-        match lexp with
-        | Lambda.Id id -> if (id = targetString) then newExp else (Lambda.Id id)
-        | Lambda.Lam (paramName, newLexp) ->
-            let newParamName = counter() in
-            let newSubs = Subs (paramName, Lambda.Id newParamName) in
-            let newLam = Lambda.Lam (newParamName, (applySubs subst (applySubs newSubs newLexp))) in
-                newLam
-        | Lambda.App (newLexp1, newLexp2) -> Lambda.App((applySubs subst newLexp1), (applySubs subst newLexp2))
+  let fv_sub: substitution -> string list =
+    fun sub ->
+      List.flatten (List.map fv_lexp
+                             (List.map snd sub))
 
-  	let rec print_lexp exp =
-		match exp with
-		| Lambda.Id s -> print_string s
-		| Lambda.Lam (s, e) -> print_string "\\"; print_string (s^"."); print_lexp e; print_string ""
-		| Lambda.App (e1, e2) -> print_string "("; print_lexp e1; print_string ") ("; print_lexp e2; print_string ")"
+  let supp: substitution -> string list =
+    fun sub ->
+      List.map fst
+      (
+      List.filter (fun x ->
+                    match x with
+                    | (s1, Lambda.Id s2) when s1 = s2 -> false
+                    | _ -> true)
+                  sub)
 
-    let print_subst subst =
-        match subst with
-        | Subs (str, lexp) -> print_string str; print_string " | "; print_lexp lexp
+  let rec substitute: substitution -> Lambda.lexp -> Lambda.lexp =
+    fun sub ltarget ->
+      match ltarget with
+      | Lambda.Id x ->
+          if (List.exists (fun s -> fst s = x) sub)
+          then snd (List.find (fun s -> fst s = x) sub)
+          else ltarget
+      | Lambda.Lam (x, e) ->
+          let appeared = [x] @
+                         (fv_lexp ltarget) @
+                         (fv_sub sub) in
+          let y = generateString appeared in
+          Lambda.Lam (y, substitute ((x, Lambda.Id y)::sub) e)
+      | Lambda.App (e1, e2) ->
+          Lambda.App (substitute sub e1, substitute sub e2)
 
-    let isBetaReducible lexp =
-        match lexp with
-        | Lambda.App ((Lambda.Lam _), _) -> true
-        | _ -> false
+  let rec checkRedex: Lambda.lexp -> bool =
+    fun l ->
+      match l with
+      | Lambda.App (Lambda.Lam _, _) ->
+          true
+      | Lambda.App (e1, e2) ->
+          (checkRedex e1) || (checkRedex e2)
+      | Lambda.Lam (_, e) ->
+          (checkRedex e)
+      | _ -> false
 
-    let betaReduction lexp =
-        match lexp with
-        | Lambda.App ((Lambda.Lam (formalParam, body)), exp) ->
-            let substitution = (makeSubstitution formalParam exp) in
-            let newLexp = (applySubs substitution body) in
-                newLexp
-        | _ -> raise (Error "betaReduction fail")
+  let rec betaReduction: Lambda.lexp -> Lambda.lexp =
+    fun l ->
+      match l with
+      | Lambda.App (Lambda.Lam (x, e1), e2) ->
+          substitute [(x, e2)] e1
+      | Lambda.App (e1, e2) ->
+          if (checkRedex e1)
+          then Lambda.App (betaReduction e1, e2)
+          else Lambda.App (e1, betaReduction e2)
+      | Lambda.Lam (x, e) ->
+          Lambda.Lam (x, betaReduction e)
+      | _ -> l
 
-	let rec reduce : Lambda.lexp -> Lambda.lexp
-	= fun exp ->
-    if (isBetaReducible exp)
-        then (
-            let newTotalLexp = (betaReduction exp) in
-            (reduce newTotalLexp)
-        )
-        else (
-            match exp with
-            | Lambda.App (exp1, exp2) ->
-                if (isBetaReducible exp1)
-                    then (
-                        let newLexp1 = (betaReduction exp1) in
-                        let newTotalLexp = Lambda.App (newLexp1, exp2) in
-                        (reduce newTotalLexp)
-                    )
-                    else (
-                        if (isBetaReducible exp2)
-                            then (
-                                let newLexp2 = (betaReduction exp2) in
-                                let newTotalLexp = Lambda.App (exp1, newLexp2) in
-                                newTotalLexp
-                            )
-                            else (
-                                let newTotalLexp = (Lambda.App ((reduce exp1), (reduce exp2))) in
-                                if( isBetaReducible newTotalLexp )
-                                    then (
-                                        (reduce newTotalLexp)
-                                    )
-                                    else (
-                                        newTotalLexp
-                                    )
-                            )
-                    )
-            | Lambda.Lam (id, exp1) ->
-                    Lambda.Lam (id, (reduce exp1))
-            | Lambda.Id id ->
-                Lambda.Id id
-        )
-(*
-    | Lambda.App ((Lambda.Lam (formalParam, body)), exp1) ->
-            (reduce (betaReduction formalParam body exp1))
+	let rec reduce : Lambda.lexp -> Lambda.lexp =
+    fun exp ->
+      if checkRedex exp
+      then reduce (betaReduction exp)
+      else exp
 
-    | Lambda.App (exp1, exp2) ->
-        (match exp1 with
-            | Lambda.App ((Lambda.Lam (formalParam, body)), exp3) ->
-                let newLexp = Lambda.App( (betaReduction formalParam body exp3), exp2) in
-                    (reduce newLexp)
-            | _ -> (match exp2 with 
-                | Lambda.App ((Lambda.Lam (formalParam, body)), exp3) ->
-                    let newLexp = Lambda.App( exp1, (betaReduction formalParam body exp3)) in
-                        newLexp
-                | _ ->
-                    let newLexp = Lambda.App((reduce exp1), (reduce exp2)) in
-                        (match newLexp with
-                        | Lambda.App ((Lambda.Lam (formalParam, body)), exp3) -> (betaReduction formalParam body exp3)
-                        | _ -> newLexp)))
-    | Lambda.Lam (id, exp1) ->
-            Lambda.Lam (id, (reduce exp1))
-    | Lambda.Id id ->
-        Lambda.Id id
-        *)
   end

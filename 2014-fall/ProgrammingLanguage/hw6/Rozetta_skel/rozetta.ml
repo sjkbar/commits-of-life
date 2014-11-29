@@ -61,14 +61,16 @@ module Rozetta = struct
                 let func1 = String.concat "_" [randomName; "function1"] in
                 let func2 = String.concat "_" [randomName; "function2"] in
                 let kontinum_formal_param = String.concat "_" [randomName; "kontinum_formal_param"] in
+                let kontinum = String.concat "_" [randomName; "kontinum"] in
 
+                let save_kontinum = [Sonata.PUSH(Sonata.Fn (kontinum_formal_param, rest_sonata_command)); Sonata.BIND kontinum] in
                 let bind_functin_args = [Sonata.BIND loc; Sonata.BIND value; Sonata.BIND func1; Sonata.BIND func2] in
-                let push_kontinum_function_args = [Sonata.PUSH(Sonata.Fn (kontinum_formal_param, rest_sonata_command)); Sonata.PUSH (Sonata.Val (Sonata.Z 1111)); Sonata.MALLOC] in
+                let push_kontinum_function_args = [Sonata.PUSH(Sonata.Id kontinum); Sonata.PUSH (Sonata.Val (Sonata.Z 1111)); Sonata.MALLOC] in
                 let push_binded_function_args =  [Sonata.PUSH(Sonata.Id func2); Sonata.PUSH(Sonata.Id func1); Sonata.PUSH (Sonata.Id value); Sonata.PUSH (Sonata.Id loc)] in
                 let unbind_function_args = [Sonata.UNBIND; Sonata.POP; Sonata.UNBIND; Sonata.POP; Sonata.UNBIND; Sonata.POP; Sonata.UNBIND; Sonata.POP] in
                 let call = [Sonata.CALL] in
 
-                bind_functin_args @ push_kontinum_function_args @ push_binded_function_args @ unbind_function_args @ call
+                save_kontinum @ bind_functin_args @ push_kontinum_function_args @ push_binded_function_args @ unbind_function_args @ call
           in
 
     fun command ->

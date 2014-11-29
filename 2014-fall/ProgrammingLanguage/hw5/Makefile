@@ -36,5 +36,8 @@ lexer.cmo: lexer.ml
 lexer.ml: lexer.mll parser.cmo
 	ocamllex lexer.mll
 
+test.cmo: test.cmo test.ml
+	ocamlc -c test.ml
+
 clean:
 	rm -f *.cmx *.cmi parser.mli parser.ml lexer.ml run *.o *.cmo

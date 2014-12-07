@@ -1,0 +1,62 @@
+App (
+  App (
+    App (
+      Lam (n,
+        Lam (x,
+          Lam (y,
+            App (
+              App (
+                Id n, 
+                Lam (z,
+                  Id y
+                )
+              ), 
+              Id x
+            )
+          )
+        )
+      ), 
+      Id lexp1
+    ), 
+    Lam (f,
+      Lam (x,
+        Id x
+      )
+    )
+  ), 
+  App (
+    App (
+      App (
+        Lam (n,
+          Lam (x,
+            Lam (y,
+              App (
+                App (
+                  Id n, 
+                  Lam (z,
+                    Id y
+                  )
+                ), 
+                Id x
+              )
+            )
+          )
+        ), 
+        Id lexp2
+      ), 
+      Lam (f,
+        Lam (x,
+          Id x
+        )
+      )
+    ), 
+    Lam (f,
+      Lam (x,
+        App (
+          Id f, 
+          Id x
+        )
+      )
+    )
+  )
+)

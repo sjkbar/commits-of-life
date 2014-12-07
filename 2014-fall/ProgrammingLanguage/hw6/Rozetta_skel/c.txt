@@ -1,0 +1,48 @@
+[Sm5.PUSH(Sm5.Fn("x",
+  [  Sm5.BIND "fac";
+  Sm5.PUSH(Sm5.Id "x");
+  Sm5.LOAD;
+  Sm5.PUSH(Sm5.Z 1);
+  Sm5.LESS;
+  Sm5.NOT;
+  Sm5.JTR(
+    [    Sm5.PUSH(Sm5.Id "x");
+    Sm5.LOAD;
+    Sm5.PUSH(Sm5.Id "fac");
+    Sm5.PUSH(Sm5.Id "fac");
+    Sm5.PUSH(Sm5.Id "x");
+    Sm5.LOAD;
+    Sm5.PUSH(Sm5.Z 1);
+    Sm5.SUB;
+    Sm5.MALLOC;
+    Sm5.CALL;
+    Sm5.MUL    ],
+    [    Sm5.PUSH(Sm5.Z 1)    ])  ]));
+Sm5.BIND "fac";
+Sm5.PUSH(Sm5.Z 0);
+Sm5.MALLOC;
+Sm5.BIND "x";
+Sm5.PUSH(Sm5.Id "x");
+Sm5.STORE;
+Sm5.GET;
+Sm5.PUSH(Sm5.Id "x");
+Sm5.STORE;
+Sm5.PUSH(Sm5.Id "x");
+Sm5.LOAD;
+Sm5.POP;
+Sm5.PUSH(Sm5.Id "fac");
+Sm5.PUSH(Sm5.Id "fac");
+Sm5.PUSH(Sm5.Id "x");
+Sm5.LOAD;
+Sm5.MALLOC;
+Sm5.CALL;
+Sm5.BIND "$writeAux";
+Sm5.PUSH(Sm5.Id "$writeAux");
+Sm5.PUSH(Sm5.Id "$writeAux");
+Sm5.PUT;
+Sm5.UNBIND;
+Sm5.POP;
+Sm5.UNBIND;
+Sm5.POP;
+Sm5.UNBIND;
+Sm5.POP]

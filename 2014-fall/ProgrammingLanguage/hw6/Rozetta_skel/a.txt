@@ -1,0 +1,1362 @@
+********************************
+
+################################
+svalue : commands : [Sonata.PUSH(Sonata.Z 0);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Fn("n",
+  [  Sonata.BIND "inc";
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.PUSH(Sonata.Id "n");
+  Sonata.LOAD;
+  Sonata.ADD;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.STORE;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "@1_result";
+  Sonata.BIND "@1_loc";
+  Sonata.BIND "@1_value";
+  Sonata.BIND "@1_kontinum";
+  Sonata.PUSH(Sonata.Id "@1_result");
+  Sonata.PUSH(Sonata.Id "@1_kontinum");
+  Sonata.PUSH(Sonata.Id "@1_value");
+  Sonata.PUSH(Sonata.Id "@1_loc");
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.CALL  ]));
+Sonata.BIND "inc";
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 0 commands : [Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Fn("n",
+  [  Sonata.BIND "inc";
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.PUSH(Sonata.Id "n");
+  Sonata.LOAD;
+  Sonata.ADD;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.STORE;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "@1_result";
+  Sonata.BIND "@1_loc";
+  Sonata.BIND "@1_value";
+  Sonata.BIND "@1_kontinum";
+  Sonata.PUSH(Sonata.Id "@1_result");
+  Sonata.PUSH(Sonata.Id "@1_kontinum");
+  Sonata.PUSH(Sonata.Id "@1_value");
+  Sonata.PUSH(Sonata.Id "@1_loc");
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.CALL  ]));
+Sonata.BIND "inc";
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(1,0)  | Sonata.Z 0 commands : [Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Fn("n",
+  [  Sonata.BIND "inc";
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.PUSH(Sonata.Id "n");
+  Sonata.LOAD;
+  Sonata.ADD;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.STORE;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "@1_result";
+  Sonata.BIND "@1_loc";
+  Sonata.BIND "@1_value";
+  Sonata.BIND "@1_kontinum";
+  Sonata.PUSH(Sonata.Id "@1_result");
+  Sonata.PUSH(Sonata.Id "@1_kontinum");
+  Sonata.PUSH(Sonata.Id "@1_value");
+  Sonata.PUSH(Sonata.Id "@1_loc");
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.CALL  ]));
+Sonata.BIND "inc";
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 0 commands : [Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Fn("n",
+  [  Sonata.BIND "inc";
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.PUSH(Sonata.Id "n");
+  Sonata.LOAD;
+  Sonata.ADD;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.STORE;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "@1_result";
+  Sonata.BIND "@1_loc";
+  Sonata.BIND "@1_value";
+  Sonata.BIND "@1_kontinum";
+  Sonata.PUSH(Sonata.Id "@1_result");
+  Sonata.PUSH(Sonata.Id "@1_kontinum");
+  Sonata.PUSH(Sonata.Id "@1_value");
+  Sonata.PUSH(Sonata.Id "@1_loc");
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.CALL  ]));
+Sonata.BIND "inc";
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(1,0)  | Sonata.Z 0 commands : [Sonata.STORE;
+Sonata.PUSH(Sonata.Fn("n",
+  [  Sonata.BIND "inc";
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.PUSH(Sonata.Id "n");
+  Sonata.LOAD;
+  Sonata.ADD;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.STORE;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "@1_result";
+  Sonata.BIND "@1_loc";
+  Sonata.BIND "@1_value";
+  Sonata.BIND "@1_kontinum";
+  Sonata.PUSH(Sonata.Id "@1_result");
+  Sonata.PUSH(Sonata.Id "@1_kontinum");
+  Sonata.PUSH(Sonata.Id "@1_value");
+  Sonata.PUSH(Sonata.Id "@1_loc");
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.CALL  ]));
+Sonata.BIND "inc";
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+
+################################
+svalue : commands : [Sonata.PUSH(Sonata.Fn("n",
+  [  Sonata.BIND "inc";
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.PUSH(Sonata.Id "n");
+  Sonata.LOAD;
+  Sonata.ADD;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.STORE;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "@1_result";
+  Sonata.BIND "@1_loc";
+  Sonata.BIND "@1_value";
+  Sonata.BIND "@1_kontinum";
+  Sonata.PUSH(Sonata.Id "@1_result");
+  Sonata.PUSH(Sonata.Id "@1_kontinum");
+  Sonata.PUSH(Sonata.Id "@1_value");
+  Sonata.PUSH(Sonata.Id "@1_loc");
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.CALL  ]));
+Sonata.BIND "inc";
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : PROC n commands : [Sonata.BIND "inc";
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+
+################################
+svalue : commands : [Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1 commands : [Sonata.MALLOC;
+Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(2,0)  | Sonata.Z 1 commands : [Sonata.BIND "x";
+Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1 commands : [Sonata.PUSH(Sonata.Id "x");
+Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(2,0)  | Sonata.Z 1 commands : [Sonata.STORE;
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+
+################################
+svalue : commands : [Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : PROC n commands : [Sonata.PUSH(Sonata.Id "inc");
+Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : PROC n  | PROC n commands : [Sonata.PUSH(Sonata.Z 1);
+Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1  | PROC n  | PROC n commands : [Sonata.MALLOC;
+Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(3,0)  | Sonata.Z 1  | PROC n commands : [Sonata.PUSH(Sonata.Fn("@0_kontinum_formal_param",
+  [  Sonata.POP;
+  Sonata.PUSH(Sonata.Id "x");
+  Sonata.LOAD;
+  Sonata.BIND "$writeAux";
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUSH(Sonata.Id "$writeAux");
+  Sonata.PUT;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP;
+  Sonata.UNBIND;
+  Sonata.POP  ]));
+Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : PROC @0_kontinum_formal_param  | Sonata.L(3,0)  | Sonata.Z 1 commands : [Sonata.PUSH(Sonata.Z 1111);
+Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1111  | PROC @0_kontinum_formal_param  | Sonata.L(3,0) commands : [Sonata.MALLOC;
+Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(4,0)  | Sonata.Z 1111  | PROC @0_kontinum_formal_param commands : [Sonata.BIND "@0_kontinum";
+Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1111  | PROC @0_kontinum_formal_param  | Sonata.L(3,0) commands : [Sonata.BIND "@0_loc";
+Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : PROC @0_kontinum_formal_param  | Sonata.L(3,0)  | Sonata.Z 1 commands : [Sonata.BIND "@0_value";
+Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(3,0)  | Sonata.Z 1  | PROC n commands : [Sonata.BIND "@0_function1";
+Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1  | PROC n  | PROC n commands : [Sonata.BIND "@0_function2";
+Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : PROC n  | PROC n commands : [Sonata.PUSH(Sonata.Id "@0_kontinum");
+Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(4,0)  | PROC n  | PROC n commands : [Sonata.PUSH(Sonata.Id "@0_function2");
+Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1  | Sonata.L(4,0)  | PROC n commands : [Sonata.PUSH(Sonata.Id "@0_function1");
+Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.L(3,0)  | Sonata.Z 1  | Sonata.L(4,0) commands : [Sonata.PUSH(Sonata.Id "@0_value");
+Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : PROC @0_kontinum_formal_param  | Sonata.L(3,0)  | Sonata.Z 1 commands : [Sonata.PUSH(Sonata.Id "@0_loc");
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1111  | PROC @0_kontinum_formal_param  | Sonata.L(3,0) commands : [Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+svalue : @0_function2 Sonata.Z 1   | Sonata.Z 1111  | PROC @0_kontinum_formal_param ################################
+commands : [Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1111  | PROC @0_kontinum_formal_param  | Sonata.L(3,0) commands : [Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+svalue : @0_function1 Sonata.L(3,0)   | Sonata.Z 1111  | PROC @0_kontinum_formal_param ################################
+commands : [Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1111  | PROC @0_kontinum_formal_param  | Sonata.L(3,0) commands : [Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+svalue : @0_value PROC @0_kontinum_formal_param   | Sonata.Z 1111  | PROC @0_kontinum_formal_param ################################
+commands : [Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1111  | PROC @0_kontinum_formal_param  | Sonata.L(3,0) commands : [Sonata.UNBIND;
+Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+svalue : @0_loc Sonata.Z 1111   | Sonata.Z 1111  | PROC @0_kontinum_formal_param ################################
+commands : [Sonata.POP;
+Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1111  | PROC @0_kontinum_formal_param  | Sonata.L(3,0) commands : [Sonata.UNBIND;
+Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+svalue : @0_kontinum Sonata.L(4,0)   | Sonata.Z 1111  | PROC @0_kontinum_formal_param ################################
+commands : [Sonata.POP;
+Sonata.CALL]
+ 
+********************************
+################################
+svalue : Sonata.Z 1111  | PROC @0_kontinum_formal_param  | Sonata.L(3,0) commands : [Sonata.CALL]
+ 
+SM5 evaluation error: stuck configuration.

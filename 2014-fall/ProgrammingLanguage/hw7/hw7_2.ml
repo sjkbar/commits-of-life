@@ -67,10 +67,25 @@ module M_PolyChecker : M_PolyChecker = struct
 
     module Env =
     struct
+        type t = (id, type_scheme) Hashtbl.t
+        let empty = Hashtbl.create 11111;;
+        let lookup env id = 
+            try 
+                (Hashtbl.find env id)
+            with Not_found ->
+                raise (RuntimeError "not bound")
+        let bind env id type_scheme= (Hashtbl.replace env id type_scheme); env
+        let fold f env init = Hashtbl.fold f env init
+        let iter f tbl = Hashtbl.iter f tbl
+    end;;
+
+    module Env2 =
+    struct
         type t = E of (id -> type_scheme)
         let empty = E(fun x -> raise (RuntimeError "not bound"))
         let lookup (E(env)) id = env id
-        let bind (E(env)) id type_scheme = E(fun x -> if x = id then type_scheme else env x)
+        let bind (E(env)) id type_scheme = 
+            E(fun x -> if x = id then type_scheme else env x)
     end;;
 
     let result_var = ref (TypeVar "__result")
@@ -266,8 +281,22 @@ module M_PolyChecker : M_PolyChecker = struct
             let new_subs = (unify_all type_equations1 substitutions) in
             (unify_all (applySubsToTypeEquations new_subs type_equations2) new_subs)
 
+    let global_subs = ref []
+
     let unification (equations:type_equations) : substitutions =
-        (unify_all equations [])
+        (unify_all equations !global_subs)
+
+    let applySubsToEnv (substitutions:substitutions) (env:Env.t) : Env.t =
+    (Env.iter
+        (fun id type_scheme ->
+                match type_scheme with
+                    | Type type_var -> 
+                        let new_type_var = (applySubsToTypeVar substitutions type_var) in
+                        (Hashtbl.replace env id (Type new_type_var))
+                    | TypeScheme _ ->
+                        (Hashtbl.replace env id type_scheme))
+        env);
+    env
 
     let rec generate_type_equations (env : Env.t) (exp : M.exp) (var : type_var) : type_equations =
         match exp with
@@ -292,22 +321,6 @@ module M_PolyChecker : M_PolyChecker = struct
             let type_equations_2 = (generate_type_equations env exp2 new_type_var1) in
             TypeAnd (type_equations_1, type_equations_2)
         | LET (decl, exp2) ->
-        (*
-            (match decl with
-                | NREC (id, exp1) ->
-                    let new_type_var1 = (TypeVar (counter())) in
-                    let type_equations_1 = (generate_type_equations env exp1 new_type_var1) in
-                    let new_env = (Env.bind env id (Type new_type_var1)) in
-                    let type_equations_2 = (generate_type_equations new_env exp2 var) in
-                    TypeAnd (type_equations_1, type_equations_2)
-                | REC (id, exp1) ->
-                    let new_type_var1 = (TypeVar (counter())) in
-                    let new_env = (Env.bind env id (Type new_type_var1)) in
-                    let type_equations_1 = (generate_type_equations new_env exp1 new_type_var1) in
-                    let type_equations_2 = (generate_type_equations new_env exp2 var) in
-                    TypeAnd (type_equations_1, type_equations_2))
-            *)
-
             (match decl with
                 | NREC (id, exp1) ->
                     let exp1_type_var = (TypeVar (counter())) in
@@ -315,27 +328,19 @@ module M_PolyChecker : M_PolyChecker = struct
 
                     (* generate type_var for let id = e1 in e2's e1 *)
                     let new_solution = (unification type_equations_1) in
+                    global_subs := new_solution;
                     let result_exp1_type_var = (applySubsToTypeVar new_solution exp1_type_var) in
                     eqTypeVarList := (applySubsToTypeVarList new_solution !eqTypeVarList);
                     result_var := (applySubsToTypeVar new_solution !result_var);
+                    let env = (applySubsToEnv new_solution env) in
+
 
                     (* generalize result_exp1_type_var *)
                     let generalized_exp1_type_scheme = (generalize result_exp1_type_var env) in
 
                     let new_env = (Env.bind env id generalized_exp1_type_scheme) in
-                    let type_equations_2 = (generate_type_equations new_env exp2 var) in
+                    let type_equations_2 = (generate_type_equations new_env exp2 (applySubsToTypeVar new_solution var)) in
                     type_equations_2
-                (*
-                    let new_type_var1 = (TypeVar (counter())) in
-                    let type_equations_temp = (generate_type_equations env exp1 new_type_var1) in
-                    let new_solution = (unification type_equations_temp) in
-                    let result_type_var = (applySubsToTypeVar new_solution new_type_var1) in
-                    let type_scheme = (generalize result_type_var env) in
-                    let type_equations_1 = (generate_type_equations env exp1 new_type_var1) in
-                    let new_env2 = (Env.bind env id type_scheme) in
-                    let type_equations_2 = (generate_type_equations new_env2 exp2 var) in
-                    TypeAnd (type_equations_1, type_equations_2)
-                    *)
                 | REC (id, exp1) ->
                     let exp1_type_var = (TypeVar (counter())) in
                     let new_env1 = (Env.bind env id (Type exp1_type_var)) in
@@ -343,28 +348,18 @@ module M_PolyChecker : M_PolyChecker = struct
 
                     (* generate type_var for let id = e1 in e2's e1 *)
                     let new_solution = (unification type_equations_1) in
+                    global_subs := new_solution;
                     let result_exp1_type_var = (applySubsToTypeVar new_solution exp1_type_var) in
                     eqTypeVarList := (applySubsToTypeVarList new_solution !eqTypeVarList);
                     result_var := (applySubsToTypeVar new_solution !result_var);
+                    let env = (applySubsToEnv new_solution env) in
 
                     (* generalize result_exp1_type_var *)
                     let generalized_exp1_type_scheme = (generalize result_exp1_type_var new_env1) in
 
                     let new_env2 = (Env.bind env id generalized_exp1_type_scheme) in
-                    let type_equations_2 = (generate_type_equations new_env2 exp2 var) in
+                    let type_equations_2 = (generate_type_equations new_env2 exp2 (applySubsToTypeVar new_solution var)) in
                     type_equations_2)
-            (*
-                    let new_type_var1 = (TypeVar (counter())) in
-                    let new_env1 = (Env.bind env id (Type new_type_var1)) in
-                    let type_equations_temp = (generate_type_equations new_env1 exp1 new_type_var1) in
-                    let new_solution = (unification type_equations_temp) in
-                    let result_type_var = (applySubsToTypeVar new_solution new_type_var1) in
-                    let type_scheme = (generalize result_type_var env) in
-                    let new_env2 = (Env.bind env id type_scheme) in
-                    let type_equations_1 = (generate_type_equations new_env2 exp1 new_type_var1) in
-                    let type_equations_2 = (generate_type_equations new_env2 exp2 var) in
-                    TypeAnd (type_equations_1, type_equations_2))
-            *)
         | IF (exp1, exp2, exp3) ->
             let type_equations_1 = (generate_type_equations env exp1 TypeBool) in
             let type_equations_2 = (generate_type_equations env exp2 var) in
@@ -463,9 +458,7 @@ module M_PolyChecker : M_PolyChecker = struct
     let rec check exp =
         let equations = (generate_type_equations Env.empty exp !result_var) in
         let solution = (unification equations) in
-        print_endline (print_substitutions solution);
         let result_type_var = (applySubsToTypeVar solution !result_var) in
-        print_endline (print_type_var result_type_var);
         (checkEqList solution);
         (checkWriteList solution);
         (change_type_var_to_types result_type_var)

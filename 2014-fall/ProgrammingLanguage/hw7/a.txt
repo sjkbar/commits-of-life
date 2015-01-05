@@ -1,0 +1,6 @@
+== Polymorphic Type Checking ==
+0
+2
+Arrow ( (TypeVar _0) , (TypeArrow((TypeVar _1), (TypeVar _2))) ) Arrow ( (TypeVar _1) , (TypeVar _3) ) Arrow ( (TypeVar _3) , TypeInt ) Arrow ( (TypeVar _2) , TypeInt ) Arrow ( (TypeVar _4) , TypeInt ) Arrow ( (TypeVar _5) , TypeInt ) Arrow ( (TypeVar __result) , TypeInt )  
+int
+== Running with Low Fat M ==

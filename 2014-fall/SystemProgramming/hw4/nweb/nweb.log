@@ -1,0 +1,1623 @@
+ INFO: nweb starting:8888:28422
+ INFO: nweb starting:8181:28448
+ERROR: system call:bind Errno=98 exiting pid=28448
+ INFO: nweb starting:8181:28540
+ERROR: system call:bind Errno=98 exiting pid=28540
+ INFO: nweb starting:8181:309
+ERROR: system call:bind Errno=98 exiting pid=309
+ INFO: nweb starting:127.0.0.1:4012
+ERROR: system call:bind Errno=13 exiting pid=4012
+ INFO: nweb starting:8181:4094
+ERROR: system call:bind Errno=98 exiting pid=4094
+ INFO: nweb starting:8181:4113
+ERROR: system call:bind Errno=98 exiting pid=4113
+ INFO: nweb starting:9999:4252
+ERROR: system call:bind Errno=98 exiting pid=4252
+ INFO: nweb starting:9999:4279
+ERROR: system call:bind Errno=98 exiting pid=4279
+ INFO: nweb starting:22222:4314
+ INFO: request:GET /index.html HTTP/1.0 ****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html HTTP/1.0 ****:2
+ INFO: SEND:index.html:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html HTTP/1.0 ****:3
+ INFO: SEND:index.html:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html HTTP/1.0 ****:4
+ INFO: SEND:index.html:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html HTTP/1.0 ****:5
+ INFO: SEND:index.html:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html HTTP/1.0 ****:6
+ INFO: SEND:index.html:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: nweb starting:22222:4473
+ERROR: system call:bind Errno=98 exiting pid=4473
+ INFO: request:GET /index.html HTTP/1.0 ****:7
+ INFO: SEND:index.html:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:7
+ INFO: nweb starting:22222:4550
+ERROR: system call:bind Errno=98 exiting pid=4550
+ INFO: request:GET /index.html HTTP/1.0 ****:8
+ INFO: SEND:index.html:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:8
+ INFO: request:GET /index.html HTTP/1.0 ****:9
+ INFO: SEND:index.html:9
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:9
+ INFO: nweb starting:22222:4564
+ERROR: system call:bind Errno=98 exiting pid=4564
+ INFO: request:GET /index.html HTTP/1.0 ****:10
+ INFO: SEND:index.html:10
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:10
+ INFO: nweb starting:22222:4595
+ERROR: system call:bind Errno=98 exiting pid=4595
+ INFO: request:GET /index.html HTTP/1.0 ****:11
+ INFO: SEND:index.html:11
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:11
+ INFO: nweb starting:22222:4638
+ERROR: system call:bind Errno=98 exiting pid=4638
+ INFO: nweb starting:22222:4760
+ERROR: system call:bind Errno=98 exiting pid=4760
+ INFO: request:GET /index.html HTTP/1.0 ****:12
+ INFO: SEND:index.html:12
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:12
+ INFO: nweb starting:22222:4839
+ INFO: nweb starting:22222:5603
+ERROR: system call:bind Errno=98 exiting pid=5603
+ INFO: nweb starting:22222:5631
+ERROR: system call:bind Errno=98 exiting pid=5631
+ INFO: nweb starting:22222:5669
+ERROR: system call:bind Errno=98 exiting pid=5669
+ INFO: nweb starting:22222:5696
+ERROR: system call:bind Errno=98 exiting pid=5696
+ INFO: nweb starting:22222:5732
+ERROR: system call:bind Errno=98 exiting pid=5732
+ INFO: nweb starting:22222:5781
+ERROR: system call:bind Errno=98 exiting pid=5781
+ INFO: nweb starting:22222:5813
+ERROR: system call:bind Errno=98 exiting pid=5813
+ INFO: nweb starting:22222:5925
+ERROR: system call:bind Errno=98 exiting pid=5925
+ INFO: nweb starting:22222:6180
+ERROR: system call:bind Errno=98 exiting pid=6180
+ INFO: nweb starting:22222:6198
+ERROR: system call:bind Errno=98 exiting pid=6198
+ INFO: nweb starting:22222:6204
+ERROR: system call:bind Errno=98 exiting pid=6204
+ INFO: nweb starting:22222:6324
+ERROR: system call:bind Errno=98 exiting pid=6324
+ INFO: nweb starting:22222:6342
+ERROR: system call:bind Errno=98 exiting pid=6342
+ INFO: nweb starting:22222:6358
+ERROR: system call:bind Errno=98 exiting pid=6358
+ INFO: nweb starting:22222:6376
+ INFO: request:GET /index.html?msg=d HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=d
+ INFO: nweb starting:22222:6384
+ERROR: system call:bind Errno=98 exiting pid=6384
+ INFO: request:GET /index.html?msg=d HTTP/1.0 ****:2
+FORBIDDEN: file extension type not supported:GET /index.html?msg=d
+ INFO: nweb starting:22222:6421
+ERROR: system call:bind Errno=98 exiting pid=6421
+ INFO: nweb starting:22222:6426
+ERROR: system call:bind Errno=98 exiting pid=6426
+ INFO: nweb starting:22222:6443
+ERROR: system call:bind Errno=98 exiting pid=6443
+ INFO: nweb starting:22222:6465
+ INFO: request:GET /index.html?msg=d HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=d
+ INFO: request:GET /index.html?msg=d HTTP/1.0 ****:2
+FORBIDDEN: file extension type not supported:GET /index.html?msg=d
+ INFO: request:GET /index.html?msg=d HTTP/1.0 ****:3
+FORBIDDEN: file extension type not supported:GET /index.html?msg=d
+ INFO: nweb starting:22222:6529
+ERROR: system call:bind Errno=98 exiting pid=6529
+ INFO: nweb starting:22222:6864
+ INFO: request:GET /index.html?msg=d HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=d
+ INFO: nweb starting:22222:6929
+ERROR: system call:bind Errno=98 exiting pid=6929
+ INFO: nweb starting:22222:6940
+ INFO: request:GET /index.html?msg=d HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=d
+ INFO: nweb starting:22222:7034
+ERROR: system call:bind Errno=98 exiting pid=7034
+ INFO: nweb starting:22222:7047
+ERROR: system call:bind Errno=98 exiting pid=7047
+ INFO: nweb starting:22222:7068
+ERROR: system call:bind Errno=98 exiting pid=7068
+ INFO: nweb starting:22222:7081
+ERROR: system call:bind Errno=98 exiting pid=7081
+ INFO: nweb starting:22223:7110
+ INFO: request:GET /index.html HTTP/1.0 ****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:22223:7142
+ERROR: system call:bind Errno=98 exiting pid=7142
+ INFO: nweb starting:22223:7156
+ERROR: system call:bind Errno=98 exiting pid=7156
+ INFO: nweb starting:22223:7195
+ INFO: request:GET /index.html HTTP/1.0 ****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:22223:7293
+ INFO: request:GET /index.html HTTP/1.0 ****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 265
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:22223:8021
+ERROR: system call:bind Errno=98 exiting pid=8021
+ INFO: nweb starting:22223:8054
+ERROR: system call:bind Errno=98 exiting pid=8054
+ INFO: nweb starting:22223:8072
+ INFO: request:GET /index.html HTTP/1.0 ****:1
+ INFO: SEND:index.html:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:2
+ INFO: nweb starting:22223:8204
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:2
+ INFO: nweb starting:22223:8305
+ERROR: system call:bind Errno=98 exiting pid=8305
+ INFO: nweb starting:22223:8311
+ERROR: system call:bind Errno=98 exiting pid=8311
+ INFO: nweb starting:22223:8324
+ERROR: system call:bind Errno=98 exiting pid=8324
+ INFO: nweb starting:22223:8332
+ERROR: system call:bind Errno=98 exiting pid=8332
+ INFO: nweb starting:22224:8337
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:2
+ INFO: nweb starting:22224:8449
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22224:8590
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:2
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:3
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:4
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:5
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:6
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:7
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22224:8645
+ERROR: system call:bind Errno=98 exiting pid=8645
+ INFO: nweb starting:22224:8653
+ERROR: system call:bind Errno=98 exiting pid=8653
+ INFO: nweb starting:22223:8659
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22223:10422
+ INFO: nweb starting:22223:10429
+ERROR: system call:bind Errno=98 exiting pid=10429
+ INFO: nweb starting:22223:10456
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:2
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22223:10689
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22223:10788
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22223:10885
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:2
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22223:10955
+ERROR: system call:bind Errno=98 exiting pid=10955
+ INFO: nweb starting:22222:10960
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22222:11013
+ERROR: system call:bind Errno=98 exiting pid=11013
+ INFO: nweb starting:22221:11027
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22221:11191
+ INFO: request:GET /index.html?msg=dmake HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=dmake
+ INFO: nweb starting:22222:12334
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=ssibal
+ INFO: nweb starting:22222:12383
+ERROR: system call:bind Errno=98 exiting pid=12383
+ INFO: nweb starting:22221:12390
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=ssibal
+ INFO: nweb starting:22222:12418
+ INFO: nweb starting:22222:12439
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=ssibal
+ INFO: nweb starting:22222:12471
+ERROR: system call:bind Errno=98 exiting pid=12471
+ INFO: nweb starting:22221:12480
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=ssibal
+ INFO: nweb starting:22221:12535
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=ssibal
+ INFO: nweb starting:22221:12655
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: nweb starting:22221:12887
+ERROR: system call:bind Errno=98 exiting pid=12887
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:2
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: nweb starting:22221:12925
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+FORBIDDEN: file extension type not supported:GET /index.html?msg=ssibal
+ INFO: nweb starting:22221:12945
+ERROR: system call:bind Errno=98 exiting pid=12945
+ INFO: nweb starting:22222:12948
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: nweb starting:22222:13011
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: nweb starting:22222:13065
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:2
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: nweb starting:22222:13094
+ERROR: system call:bind Errno=98 exiting pid=13094
+ INFO: nweb starting:22222:13100
+ERROR: system call:bind Errno=98 exiting pid=13100
+ INFO: nweb starting:22221:13104
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:2
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: nweb starting:22221:13171
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: nweb starting:22221:13239
+ERROR: system call:bind Errno=98 exiting pid=13239
+ INFO: nweb starting:22222:13243
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+NOT FOUND: failed to open file:index.html?msg=ssibal
+ INFO: nweb starting:22222:13278
+ERROR: system call:bind Errno=98 exiting pid=13278
+ INFO: nweb starting:22221:13284
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:22222:13333
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:22222:13380
+ERROR: system call:bind Errno=98 exiting pid=13380
+ INFO: nweb starting:22221:13389
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:22222:13550
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:22221:13570
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:22221:13589
+ERROR: system call:bind Errno=98 exiting pid=13589
+ INFO: nweb starting:22222:13618
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:3
+ INFO: SEND:index.html?msg=ssibal:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: nweb starting:22221:13685
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=ssibalnoma HTTP/1.0 ****:3
+ INFO: SEND:index.html?msg=ssibalnoma:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:4
+ INFO: SEND:index.html?msg=zzzzokka:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: nweb starting:22222:13844
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=zzzzokka:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:2
+ INFO: SEND:index.html?msg=zzzzokka:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:3
+ INFO: SEND:index.html?msg=zzzzokka:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:4
+ INFO: SEND:index.html?msg=zzzzokka:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:5
+ INFO: SEND:index.html?msg=zzzzokka:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:6
+ INFO: SEND:index.html?msg=zzzzokka:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:7
+ INFO: SEND:index.html?msg=zzzzokka:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:7
+ INFO: request:GET /index.html?msg=zzzzokka HTTP/1.0 ****:8
+ INFO: SEND:index.html?msg=zzzzokka:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:8
+ INFO: request:GET /index.html?msg=22222 HTTP/1.0 ****:9
+ INFO: SEND:index.html?msg=22222:9
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:9
+ INFO: request:GET /index.html?msg=11111 HTTP/1.0 ****:10
+ INFO: SEND:index.html?msg=11111:10
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:10
+ INFO: request:GET /index.html?msg=22222 HTTP/1.0 ****:11
+ INFO: SEND:index.html?msg=22222:11
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:11
+ INFO: request:GET /index.html?msg=11111 HTTP/1.0 ****:12
+ INFO: SEND:index.html?msg=11111:12
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:12
+ INFO: request:GET /index.html?msg=22222 HTTP/1.0 ****:13
+ INFO: SEND:index.html?msg=22222:13
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:13
+ INFO: request:GET /index.html?msg=22222 HTTP/1.0 ****:14
+ INFO: SEND:index.html?msg=22222:14
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:14
+ INFO: request:GET /index.html?msg=11111 HTTP/1.0 ****:15
+ INFO: SEND:index.html?msg=11111:15
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:15
+ INFO: request:GET /index.html?msg=11111 HTTP/1.0 ****:16
+ INFO: SEND:index.html?msg=11111:16
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:16
+ INFO: request:GET /index.html?msg=22222 HTTP/1.0 ****:17
+ INFO: SEND:index.html?msg=22222:17
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:17
+ INFO: request:GET /index.html?msg=11111 HTTP/1.0 ****:18
+ INFO: SEND:index.html?msg=11111:18
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:18
+ INFO: request:GET /index.html?msg=22222 HTTP/1.0 ****:19
+ INFO: SEND:index.html?msg=22222:19
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:19
+ INFO: request:GET /index.html?msg=22222 HTTP/1.0 ****:20
+ INFO: SEND:index.html?msg=22222:20
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:20
+ INFO: request:GET /index.html?msg=11111 HTTP/1.0 ****:21
+ INFO: SEND:index.html?msg=11111:21
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:21
+ INFO: nweb starting:127.0.0.1:14020
+ERROR: system call:bind Errno=13 exiting pid=14020
+ INFO: nweb starting:11111:14075
+ERROR: system call:bind Errno=98 exiting pid=14075
+ INFO: nweb starting:4190:14085
+ERROR: system call:bind Errno=98 exiting pid=14085
+ INFO: nweb starting:4190:14089
+ERROR: system call:bind Errno=98 exiting pid=14089
+ INFO: nweb starting:4191:14104
+ INFO: request:GET /index.html?msg=sssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=sssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=sssibal HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=sssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=sssibal HTTP/1.0 **:3
+ INFO: SEND:index.html?msg=sssibal:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=sssibal HTTP/1.0 **:4
+ INFO: SEND:index.html?msg=sssibal:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html?msg=sssibal HTTP/1.0 **:5
+ INFO: SEND:index.html?msg=sssibal:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html?msg=sssibal HTTP/1.0 **:6
+ INFO: SEND:index.html?msg=sssibal:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: request:GET /index.html?msg=sssibal HTTP/1.0 **:7
+ INFO: SEND:index.html?msg=sssibal:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:7
+ INFO: request:asdf*:8
+FORBIDDEN: Only simple GET operation supported:asdf*
+ INFO: nweb starting:5555:16066
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: nweb starting:5555:16166
+ERROR: system call:bind Errno=98 exiting pid=16166
+ INFO: nweb starting:5555:16174
+ERROR: system call:bind Errno=98 exiting pid=16174
+ INFO: nweb starting:5555:16178
+ERROR: system call:bind Errno=98 exiting pid=16178
+ INFO: nweb starting:5555:16180
+ERROR: system call:bind Errno=98 exiting pid=16180
+ INFO: nweb starting:5555:16182
+ERROR: system call:bind Errno=98 exiting pid=16182
+ INFO: nweb starting:5555:16184
+ERROR: system call:bind Errno=98 exiting pid=16184
+ INFO: nweb starting:5555:16186
+ERROR: system call:bind Errno=98 exiting pid=16186
+ INFO: nweb starting:5555:16188
+ERROR: system call:bind Errno=98 exiting pid=16188
+ INFO: nweb starting:5555:16190
+ERROR: system call:bind Errno=98 exiting pid=16190
+ INFO: nweb starting:5555:16192
+ERROR: system call:bind Errno=98 exiting pid=16192
+ INFO: nweb starting:5555:16194
+ERROR: system call:bind Errno=98 exiting pid=16194
+ INFO: nweb starting:5555:16196
+ERROR: system call:bind Errno=98 exiting pid=16196
+ INFO: nweb starting:5554:16198
+ INFO: nweb starting:5555:16204
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:5555:16260
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:5555:16309
+ERROR: system call:bind Errno=98 exiting pid=16309
+ INFO: nweb starting:5555:16315
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: nweb starting:5555:16361
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:5555:16438
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:5555:16513
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: nweb starting:55555:17004
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:3
+ INFO: SEND:index.html?msg=ssibal:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: nweb starting:5555:17671
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:3
+ INFO: SEND:index.html?msg=ssibal:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:4
+ INFO: SEND:index.html?msg=ssibal:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:5
+ INFO: SEND:index.html?msg=ssibal:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:6
+ INFO: SEND:index.html?msg=ssibal:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: nweb starting:5555:18190
+ERROR: system call:bind Errno=98 exiting pid=18190
+ INFO: nweb starting:5555:18202
+ERROR: system call:bind Errno=98 exiting pid=18202
+ INFO: nweb starting:5556:18210
+ INFO: nweb starting:5555:18217
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 ****:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:3
+ INFO: SEND:index.html?msg=ssibal:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:4
+ INFO: SEND:index.html?msg=ssibal:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:5
+ INFO: SEND:index.html?msg=ssibal:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:6
+ INFO: SEND:index.html?msg=ssibal:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:7
+ INFO: SEND:index.html?msg=ssibal:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:7
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:8
+ INFO: SEND:index.html?msg=ssibal:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:8
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:9
+ INFO: SEND:index.html?msg=ssibal:9
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:9
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:10
+ INFO: SEND:index.html?msg=ssibal:10
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:10
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:11
+ INFO: SEND:index.html?msg=ssibal:11
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:11
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:12
+ INFO: SEND:index.html?msg=ssibal:12
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:12
+ INFO: nweb starting:5555:21606
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:3
+ INFO: SEND:index.html?msg=ssibal:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:4
+ INFO: SEND:index.html?msg=ssibal:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:5
+ INFO: SEND:index.html?msg=ssibal:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:6
+ INFO: SEND:index.html?msg=ssibal:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:7
+ INFO: SEND:index.html?msg=ssibal:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:7
+ INFO: nweb starting:5555:22418
+ERROR: system call:bind Errno=98 exiting pid=22418
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:8
+ INFO: SEND:index.html?msg=ssibal:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:8
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:9
+ INFO: SEND:index.html?msg=ssibal:9
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:9
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:10
+ INFO: SEND:index.html?msg=ssibal:10
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:10
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:11
+ INFO: SEND:index.html?msg=ssibal:11
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:11
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:12
+ INFO: SEND:index.html?msg=ssibal:12
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:12
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:13
+ INFO: SEND:index.html?msg=ssibal:13
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:13
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:14
+ INFO: SEND:index.html?msg=ssibal:14
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:14
+ INFO: nweb starting:5555:24501
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=asfda HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=asfda:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=asfda HTTP/1.0 **:3
+ INFO: SEND:index.html?msg=asfda:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=asfda HTTP/1.0 **:4
+ INFO: SEND:index.html?msg=asfda:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:5
+ INFO: SEND:index.html?msg=ssibal:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html?msg=asfda HTTP/1.0 **:6
+ INFO: SEND:index.html?msg=asfda:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: request:GET /index.html?msg=asfda HTTP/1.0*:7
+ INFO: SEND:index.html?msg=asfda:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:7
+ INFO: request:GET /index.html?msg=asfda HTTP/1.0*:8
+ INFO: SEND:index.html?msg=asfda:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:8
+ INFO: nweb starting:4190:24782
+ERROR: system call:bind Errno=98 exiting pid=24782
+ INFO: nweb starting:4190:24796
+ERROR: system call:bind Errno=98 exiting pid=24796
+ INFO: nweb starting:5555:24813
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibal:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=ssibal:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:3
+ INFO: SEND:index.html?msg=ssibal:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:4
+ INFO: SEND:index.html?msg=ssibal:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:5
+ INFO: SEND:index.html?msg=ssibal:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:6
+ INFO: SEND:index.html?msg=ssibal:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:7
+ INFO: SEND:index.html?msg=ssibal:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:7
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:8
+ INFO: SEND:index.html?msg=ssibal:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:8
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:9
+ INFO: SEND:index.html?msg=ssibal:9
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:9
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:10
+ INFO: SEND:index.html?msg=ssibal:10
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:10
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:11
+ INFO: SEND:index.html?msg=ssibal:11
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:11
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:12
+ INFO: SEND:index.html?msg=ssibal:12
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:12
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:13
+ INFO: SEND:index.html?msg=ssibal:13
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:13
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:14
+ INFO: SEND:index.html?msg=ssibal:14
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:14
+ INFO: request:GET /index.html?msg=ssibal HTTP/1.0 **:15
+ INFO: SEND:index.html?msg=ssibal:15
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:15
+ INFO: nweb starting:5555:26234
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:1
+ INFO: SEND:index.html?msg=ssibla:1
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:1
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:2
+ INFO: SEND:index.html?msg=ssibla:2
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:2
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:3
+ INFO: SEND:index.html?msg=ssibla:3
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:3
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:4
+ INFO: SEND:index.html?msg=ssibla:4
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:4
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:5
+ INFO: SEND:index.html?msg=ssibla:5
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:5
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:6
+ INFO: SEND:index.html?msg=ssibla:6
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:6
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:7
+ INFO: SEND:index.html?msg=ssibla:7
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:7
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:8
+ INFO: SEND:index.html?msg=ssibla:8
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:8
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:9
+ INFO: SEND:index.html?msg=ssibla:9
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:9
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:10
+ INFO: SEND:index.html?msg=ssibla:10
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:10
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:11
+ INFO: SEND:index.html?msg=ssibla:11
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:11
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:12
+ INFO: SEND:index.html?msg=ssibla:12
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:12
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:13
+ INFO: SEND:index.html?msg=ssibla:13
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:13
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:14
+ INFO: SEND:index.html?msg=ssibla:14
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:14
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:15
+ INFO: SEND:index.html?msg=ssibla:15
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:15
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:16
+ INFO: SEND:index.html?msg=ssibla:16
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:16
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:17
+ INFO: SEND:index.html?msg=ssibla:17
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:17
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:18
+ INFO: SEND:index.html?msg=ssibla:18
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:18
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:19
+ INFO: SEND:index.html?msg=ssibla:19
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:19
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:20
+ INFO: SEND:index.html?msg=ssibla:20
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:20
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:21
+ INFO: SEND:index.html?msg=ssibla:21
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:21
+ INFO: request:GET /index.html?msg=ssibla HTTP/1.0 **:22
+ INFO: SEND:index.html?msg=ssibla:22
+ INFO: Header:HTTP/1.1 200 OK
+Server: nweb/23.0
+Content-Length: 104
+Connection: close
+Content-Type: text/html
+
+:22

@@ -1,0 +1,3 @@
+Arrow ( (TypeVar _186) , (TypePair((TypeVar _187), (TypePair((TypeVar _188), (TypeVar _189))))) ) Arrow ( (TypeVar _190) , (TypeVar _185) ) Arrow ( (TypeVar _187) , TypeInt ) Arrow ( (TypeVar _188) , TypeInt ) Arrow ( (TypeVar _189) , (TypePair(TypeInt, TypeInt)) ) Arrow ( (TypeVar _184) , TypeString ) Arrow ( (TypeVar _191) , (TypePair((TypeVar _192), (TypePair((TypeVar _193), (TypeVar _194))))) ) Arrow ( (TypeVar _195) , (TypeVar __result) ) Arrow ( (TypeVar _197) , (TypeVar _196) ) Arrow ( (TypeVar _198) , (TypeVar _192) ) Arrow ( (TypeVar _199) , (TypeVar _193) ) Arrow ( (TypeVar _194) , (TypePair((TypeVar _200), (TypeVar _201))) ) Arrow ( (TypeVar _196) , (TypePair(TypeInt, (TypePair(TypeInt, (TypePair(TypeInt, TypeInt)))))) )  
+(TypeVar __result)
+

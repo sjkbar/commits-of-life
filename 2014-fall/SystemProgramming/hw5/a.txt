@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Readers–writers problem - Wikipedia, the free encyclopedia</title>
+<meta name="generator" content="MediaWiki 1.25wmf10" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Readers%E2%80%93writers_problem" />
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit" />
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Readers%E2%80%93writers_problem" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="http://en.wikipedia.org/wiki/Readers%E2%80%93writers_problem" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.geshi.language.ada%2Cc%7Cext.geshi.local%7Cext.rtlcite%2Cwikihiero%2CwikimediaBadges%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:3904d24a08aa08f6a68dc338f9be277e */</style>
+<script src="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Readers–writers_problem","wgTitle":"Readers–writers problem","wgCurRevisionId":636024208,"wgRevisionId":636024208,"wgArticleId":4189100,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles needing additional references from December 2010","All articles needing additional references","Use dmy dates from December 2010","Concurrency (computer science)"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Readers–writers_problem","wgRelevantArticleId":4189100,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"previewDialog":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"isPageWatched":false,"pageLanguageCode":"en","pageLanguageDir":"ltr","svgMaxSize":4096,"namespacesWithSubpages":{"6":0,"8":0,"1":true,"2":true,"3":true,"4":true,"5":true,"7":true,"9":true,"10":true,"11":true,"12":true,"13":true,"14":true,"15":true,"100":true,"101":true,"102":true,"103":true,"104":true,"105":true,"106":true,"107":true,"108":true,"109":true,"110":true,"111":true,"830":true,"831":true,"447":true,"2600":false,"828":true,"829":true}},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgHHVMStart":1412726400000,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q1146845"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});},{},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{},{});
+/* cache key: enwiki:resourceloader:filter:minify-js:7:94007ea073e20ad4a3cdce36b2f2e369 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf10/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Readers–writers_problem skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Readers–writers problem</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-navigation">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="metadata plainlinks ambox ambox-content ambox-Refimprove" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><a href="/wiki/File:Question_book-new.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="262" data-file-height="204" /></a></div>
+</td>
+<td class="mbox-text"><span class="mbox-text-span">This article <b>needs additional citations for <a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>. <span class="hide-when-compact">Please help <a class="external text" href="//en.wikipedia.org/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit">improve this article</a> by <a href="/wiki/Help:Introduction_to_referencing/1" title="Help:Introduction to referencing/1">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.</span> <small><i>(December 2010)</i></small></span></td>
+</tr>
+</table>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, the <b>first and second readers-writers problems</b> are examples of a common computing problem in <a href="/wiki/Concurrency_(computer_science)" title="Concurrency (computer science)">concurrency</a>. The two problems deal with situations in which many <a href="/wiki/Thread_(computer_science)" title="Thread (computer science)" class="mw-redirect">threads</a> must access the same <a href="/wiki/Shared_memory" title="Shared memory">shared memory</a> at one time, some reading and some writing, with the natural constraint that no process may access the share for reading or writing while another process is in the act of writing to it. (In particular, it <i>is</i> allowed for two or more readers to access the share at the same time.) A <a href="/wiki/Readers-writer_lock" title="Readers-writer lock" class="mw-redirect">readers-writer lock</a> is a <a href="/wiki/Data_structure" title="Data structure">data structure</a> that solves one or more of the readers-writers problems.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#The_first_readers-writers_problem"><span class="tocnumber">1</span> <span class="toctext">The first readers-writers problem</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#The_second_readers-writers_problem"><span class="tocnumber">2</span> <span class="toctext">The second readers-writers problem</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#The_third_readers-writers_problem"><span class="tocnumber">3</span> <span class="toctext">The third readers-writers problem</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="The_first_readers-writers_problem">The first readers-writers problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit&amp;section=1" title="Edit section: The first readers-writers problem">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Suppose we have a shared memory area with the constraints detailed above. It is possible to protect the shared data behind a mutual exclusion <a href="/wiki/Mutex" title="Mutex" class="mw-redirect">mutex</a>, in which case no two threads can access the data at the same time. However, this solution is suboptimal, because it is possible that a reader <i>R<sub>1</sub></i> might have the lock, and then another reader <i>R<sub>2</sub></i> requests access. It would be foolish for <i>R<sub>2</sub></i> to wait until <i>R<sub>1</sub></i> was done before starting its own read operation; instead, <i>R<sub>2</sub></i> should start right away. This is the motivation for the <b>first readers-writers problem</b>, in which the constraint is added that <i>no reader shall be kept waiting if the share is currently opened for reading.</i> This is also called <b>readers-preference</b>, with its solution below:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="c source-c">
+<pre class="de1">
+semaphore wrt<span class="sy0">=</span><span class="nu0">1</span><span class="sy0">,</span> mutex<span class="sy0">=</span><span class="nu0">1</span><span class="sy0">;</span>
+readcount<span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span>
+ 
+writer<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    wait<span class="br0">(</span>wrt<span class="br0">)</span><span class="sy0">;</span>
+    <span class="co1">// Writing is done</span>
+    signal<span class="br0">(</span>wrt<span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span>
+ 
+reader<span class="br0">(</span><span class="br0">)</span>
+<span class="br0">{</span>
+    wait<span class="br0">(</span>mutex<span class="br0">)</span><span class="sy0">;</span>
+        readcount<span class="sy0">++;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>readcount <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">)</span>
+            wait<span class="br0">(</span>wrt<span class="br0">)</span><span class="sy0">;</span>
+    signal<span class="br0">(</span>mutex<span class="br0">)</span><span class="sy0">;</span>
+    <span class="co1">// Do the Reading</span>
+    <span class="co1">// (Critical Section Area)</span>
+    wait<span class="br0">(</span>mutex<span class="br0">)</span><span class="sy0">;</span>
+        readcount<span class="sy0">--;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>readcount <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">)</span>
+            signal<span class="br0">(</span>wrt<span class="br0">)</span><span class="sy0">;</span>
+    signal<span class="br0">(</span>mutex<span class="br0">)</span><span class="sy0">;</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<h2><span class="mw-headline" id="The_second_readers-writers_problem">The second readers-writers problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit&amp;section=2" title="Edit section: The second readers-writers problem">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Above solution is suboptimal, because it is possible that a reader <i>R<sub>1</sub></i> might have the lock, a writer <i>W</i> be waiting for the lock, and then a reader <i>R<sub>2</sub></i> requests access. It would be foolish for <i>R<sub>2</sub></i> to jump in immediately, ahead of <i>W</i>; if that happened often enough, <i>W</i> would <a href="/wiki/Resource_starvation" title="Resource starvation">starve</a>. Instead, <i>W</i> should start as soon as possible. This is the motivation for the <b>second readers-writers problem</b>, in which the constraint is added that <i>no writer, once added to the queue, shall be kept waiting longer than absolutely necessary</i>. This is also called <b>writers-preference</b>.</p>
+<p>A solution to the <b>writers-preference</b> scenario is presented below:.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span>[</span>1<span>]</span></a></sup> In this code, the semaphore mutex_rdcnt protects the readcount variable, mutex_wrcnt protects the writecount variable, the mutex 'r' protects the reading operation, and the mutex 'w' protects the writing operation.</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="ada source-ada">
+<pre class="de1">
+int readcount, writecount; //<span class="br0">(</span>initial value = <span class="nu0">0</span><span class="br0">)</span>
+semaphore mutex_rdcnt, mutex_wrcnt, mutex_3, w, r; //<span class="br0">(</span>initial value = <span class="nu0">1</span><span class="br0">)</span>
+ 
+//READER
+  wait<span class="br0">(</span>mutex_3<span class="br0">)</span>;
+    wait<span class="br0">(</span>r<span class="br0">)</span>;
+      wait<span class="br0">(</span>mutex_rdcnt<span class="br0">)</span>;
+        readcount++;
+        <span class="kw1">if</span> <span class="br0">(</span>readcount == <span class="nu0">1</span><span class="br0">)</span>
+            wait<span class="br0">(</span>w<span class="br0">)</span>;
+      signal<span class="br0">(</span>mutex_rdcnt<span class="br0">)</span>;
+    signal<span class="br0">(</span>r<span class="br0">)</span>;
+  signal<span class="br0">(</span>mutex_3<span class="br0">)</span>;
+ 
+ // reading <span class="kw1">is</span> performed
+ 
+  wait<span class="br0">(</span>mutex_rdcnt<span class="br0">)</span>;
+    readcount<span class="co1">--;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>readcount == <span class="nu0">0</span><span class="br0">)</span> 
+        signal<span class="br0">(</span>w<span class="br0">)</span>;
+  signal<span class="br0">(</span>mutex_rdcnt<span class="br0">)</span>;
+ 
+//WRITER
+  wait<span class="br0">(</span>mutex_wrcnt<span class="br0">)</span>;
+    writecount++;
+    <span class="kw1">if</span> <span class="br0">(</span>writecount == <span class="nu0">1</span><span class="br0">)</span> 
+        wait<span class="br0">(</span>r<span class="br0">)</span>;
+  signal<span class="br0">(</span>mutex_wrcnt<span class="br0">)</span>;
+ 
+  wait<span class="br0">(</span>w<span class="br0">)</span>;
+   // writing <span class="kw1">is</span> performed
+  signal<span class="br0">(</span>w<span class="br0">)</span>;
+ 
+  wait<span class="br0">(</span>mutex_wrcnt<span class="br0">)</span>;
+    writecount<span class="co1">--;</span>
+    <span class="kw1">if</span> <span class="br0">(</span>writecount == <span class="nu0">0</span><span class="br0">)</span> 
+        signal<span class="br0">(</span>r<span class="br0">)</span>;
+  signal<span class="br0">(</span>mutex_wrcnt<span class="br0">)</span>;
+</pre></div>
+</div>
+<h2><span class="mw-headline" id="The_third_readers-writers_problem">The third readers-writers problem</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit&amp;section=3" title="Edit section: The third readers-writers problem">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In fact, the solutions implied by both problem statements result in starvation — the first readers-writers problem may starve writers in the queue, and the second readers-writers problem may starve readers. Therefore, the <b>third readers-writers problem</b> is sometimes proposed, which adds the constraint that <i>no thread shall be allowed to starve</i>; that is, the operation of obtaining a lock on the shared data will always terminate in a bounded amount of time. A solution with fairness for both readers and writers might be as follows:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="ada source-ada">
+<pre class="de1">
+int readcount; // <span class="br0">(</span>initial value = <span class="nu0">0</span><span class="br0">)</span>
+semaphore mutex_rdcnt, r, w; // <span class="br0">(</span> initial value = <span class="nu0">1</span> <span class="br0">)</span> 
+ 
+//READER
+        wait<span class="br0">(</span>r<span class="br0">)</span>;
+          wait<span class="br0">(</span>mutex_rdcnt<span class="br0">)</span>;
+            readcount++;
+            <span class="kw1">if</span> <span class="br0">(</span>readcount == <span class="nu0">1</span><span class="br0">)</span>
+              wait<span class="br0">(</span>w<span class="br0">)</span>;
+          signal<span class="br0">(</span>mutex_rdcnt<span class="br0">)</span>;          
+        signal<span class="br0">(</span>r<span class="br0">)</span>;
+ 
+        // reading <span class="kw1">is</span> performed 
+ 
+        wait<span class="br0">(</span>mutex_rdcnt<span class="br0">)</span>;
+          readcount<span class="co1">--;</span>
+          <span class="kw1">if</span> <span class="br0">(</span>readcount == <span class="nu0">0</span><span class="br0">)</span>
+            signal<span class="br0">(</span>w<span class="br0">)</span>;
+        signal<span class="br0">(</span>mutex_rdcnt<span class="br0">)</span>;  
+ 
+//WRITER
+        wait<span class="br0">(</span>r<span class="br0">)</span>;
+        wait<span class="br0">(</span>w<span class="br0">)</span>;
+        signal<span class="br0">(</span>r<span class="br0">)</span>;
+ 
+         // writing <span class="kw1">is</span> performed
+ 
+        signal<span class="br0">(</span>w<span class="br0">)</span>;
+</pre></div>
+</div>
+<p>Note that sections protected by mutex_rdcnt could be replaced by a suitable <a href="/wiki/Fetch-and-add" title="Fetch-and-add">fetch-and-add</a> atomic instruction, saving two potential context switches in reader's code.</p>
+<p>Note also that this solution can only satisfy the condition that "no thread shall be allowed to starve" if and only if semaphores preserve first-in first-out ordering when blocking and releasing threads. Otherwise, a blocked writer, for example, may remain blocked indefinitely with a cycle of other writers decrementing the semaphore before it can.</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit&amp;section=4" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/ABA_problem" title="ABA problem">ABA problem</a></li>
+<li><a href="/wiki/Producers-consumers_problem" title="Producers-consumers problem" class="mw-redirect">Producers-consumers problem</a></li>
+<li><a href="/wiki/Dining_philosophers_problem" title="Dining philosophers problem">Dining philosophers problem</a></li>
+<li><a href="/wiki/Cigarette_smokers_problem" title="Cigarette smokers problem">Cigarette smokers problem</a></li>
+<li><a href="/wiki/Sleeping_barber_problem" title="Sleeping barber problem">Sleeping barber problem</a></li>
+<li><a href="/wiki/Readers%E2%80%93writer_lock" title="Readers–writer lock">Readers–writer lock</a></li>
+</ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit&amp;section=5" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p><sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span>[</span>2<span>]</span></a></sup> <sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span>[</span>3<span>]</span></a></sup> <sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>4<span>]</span></a></sup></p>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text">Communications of the ACM&#160;:Concurrent Control with "Readers" and "Writers" P.J. Courtois,* F. H, 1971 <a rel="nofollow" class="external autonumber" href="http://cs.nyu.edu/~lerner/spring10/MCP-S10-Read04-ReadersWriters.pdf">[1]</a></span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">Morris JM (1979) A starvation-free solution to the mutual exclusion problem. Inf Process Lett 8:76–80</span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text">Fair Solution to the Reader-Writer-Problem with Semaphores only. H. Ballhausen, 2003 <a rel="nofollow" class="external autonumber" href="http://arxiv.org/pdf/cs/0303005.pdf">[2]</a></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text">Faster Fair Solution for the Reader-Writer Problem. V.Popov, O.Mazonka 2013 <a rel="nofollow" class="external autonumber" href="http://arxiv.org/ftp/arxiv/papers/1309/1309.4507.pdf">[3]</a></span></li>
+</ol>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit&amp;section=6" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://www.rfc1149.net/blog/2011/01/07/the-third-readers-writers-problem/">Algorithmic description of the third readers-writers problem</a></li>
+</ul>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1127
+CPU time usage: 0.872 seconds
+Real time usage: 0.927 seconds
+Preprocessor visited node count: 297/1000000
+Preprocessor generated node count: 1419/1500000
+Post‐expand include size: 4110/2097152 bytes
+Template argument size: 134/2097152 bytes
+Highest expansion depth: 14/40
+Expensive parser function count: 3/500
+Lua time usage: 0.109/10.000 seconds
+Lua memory usage: 838 KB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  640.945      1 - -total
+ 38.09%  244.141      1 - Template:Refimprove
+ 24.15%  154.763      1 - Template:Ambox
+ 11.69%   74.928      1 - Template:Use_dmy_dates
+  9.86%   63.229      1 - Template:DMCA
+  8.76%   56.172      1 - Template:Dated_maintenance_category
+  4.88%   31.307      1 - Template:FULLROOTPAGENAME
+  2.56%   16.405      1 - Template:Ns_has_subpages
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:4189100-0!*!0!!en!4!* and timestamp 20141130133151 and revision id 636024208
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikipedia.org/w/index.php?title=Readers–writers_problem&amp;oldid=636024208">http://en.wikipedia.org/w/index.php?title=Readers–writers_problem&amp;oldid=636024208</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Concurrency_(computer_science)" title="Category:Concurrency (computer science)">Concurrency (computer science)</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Articles_needing_additional_references_from_December_2010" title="Category:Articles needing additional references from December 2010">Articles needing additional references from December 2010</a></li><li><a href="/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li><li><a href="/wiki/Category:Use_dmy_dates_from_December_2010" title="Category:Use dmy dates from December 2010">Use dmy dates from December 2010</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Readers%E2%80%93writers+problem&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Readers%E2%80%93writers+problem" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Readers%E2%80%93writers_problem"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Readers%E2%80%93writers_problem"  title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Readers%E2%80%93writers_problem" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=history"  title="Past versions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if one exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+													<li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li>
+													<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li>
+													<li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li>
+													<li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikimedia Shop">Wikimedia Shop</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+													<li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Readers%E2%80%93writers_problem" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Readers%E2%80%93writers_problem" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;oldid=636024208" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q1146845" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Readers%E2%80%93writers_problem&amp;id=636024208" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Readers%E2%80%93writers+problem">Create a book</a></li>
+													<li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Readers%E2%80%93writers+problem&amp;oldid=636024208&amp;writer=rdf2latex">Download as PDF</a></li>
+													<li id="t-print"><a href="/w/index.php?title=Readers%E2%80%93writers_problem&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-cs"><a href="//cs.wikipedia.org/wiki/Probl%C3%A9m_%C4%8Dten%C3%A1%C5%99%C5%AF_a_p%C3%ADsa%C5%99%C5%AF" title="Problém čtenářů a písařů – Czech" lang="cs" hreflang="cs">Čeština</a></li>
+													<li class="interlanguage-link interwiki-fr"><a href="//fr.wikipedia.org/wiki/Probl%C3%A8me_des_lecteurs_et_des_r%C3%A9dacteurs" title="Problème des lecteurs et des rédacteurs – French" lang="fr" hreflang="fr">Français</a></li>
+													<li class="interlanguage-link interwiki-ko"><a href="//ko.wikipedia.org/wiki/%EB%8F%85%EC%9E%90-%EC%A0%80%EC%9E%90_%EB%AC%B8%EC%A0%9C" title="독자-저자 문제 – Korean" lang="ko" hreflang="ko">한국어</a></li>
+													<li class="interlanguage-link interwiki-pl"><a href="//pl.wikipedia.org/wiki/Problem_czytelnik%C3%B3w_i_pisarzy" title="Problem czytelników i pisarzy – Polish" lang="pl" hreflang="pl">Polski</a></li>
+													<li class="interlanguage-link interwiki-ru"><a href="//ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BE_%D1%87%D0%B8%D1%82%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%D1%85-%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%D1%85" title="Задача о читателях-писателях – Russian" lang="ru" hreflang="ru">Русский</a></li>
+													<li class="interlanguage-link interwiki-sk"><a href="//sk.wikipedia.org/wiki/Probl%C3%A9m_%C4%8Ditate%C4%BEa-zapisovate%C4%BEa" title="Problém čitateľa-zapisovateľa – Slovak" lang="sk" hreflang="sk">Slovenčina</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q1146845#sitelinks-wikipedia" text="Edit links" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 30 November 2014 at 13:31.<br /></li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Readers%E2%80%93writers_problem&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf10/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.eventLogging.subscriber","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":116,"wgHostname":"mw1238"});
+}</script>
+	</body>
+</html>
